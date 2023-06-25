@@ -15,28 +15,41 @@ struct UserRequestView: View {
         today: YearMonthDay(date: Date.now)
     )
     
+    @State private var prefectures: [Prefecture] = []
+    
     var body: some View {
-        List {
-            Section("User Profile Input") {
-                TextField("Name", text: $user.name)
-                DatePicker("Birthday", selection: $user.birthday.date, displayedComponents: .date)
-                Picker("Blood type", selection: $user.bloodType) {
-                    ForEach(BloodType.allCases) { type in
-                        Text(type.rawValue.uppercased())
+        NavigationStack(path: $prefectures) {
+            List {
+                Section("User Profile Input") {
+                    TextField("Name", text: $user.name)
+                    DatePicker("Birthday", selection: $user.birthday.date, displayedComponents: .date)
+                    Picker("Blood type", selection: $user.bloodType) {
+                        ForEach(BloodType.allCases) { type in
+                            Text(type.rawValue.uppercased())
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                }
+                Section("User Profile Output") {
+                    LabeledContent("Name") {
+                        Text(user.name)
+                    }
+                    LabeledContent("Birthday") {
+                        Text(user.birthday.date.description)
+                    }
+                    LabeledContent("Blood type") {
+                        Text(user.bloodType.rawValue)
                     }
                 }
-                .pickerStyle(.segmented)
+                Section {
+                    Button("Submit") {
+                        prefectures.append(Prefecture.preview)
+                    }
+                }
             }
-            Section("User Profile Output") {
-                LabeledContent("Name") {
-                    Text(user.name)
-                }
-                LabeledContent("Birthday") {
-                    Text(user.birthday.date.description)
-                }
-                LabeledContent("Blood type") {
-                    Text(user.bloodType.rawValue)
-                }
+            .navigationTitle("Prefecture Fortune")
+            .navigationDestination(for: Prefecture.self) { prefecture in
+                UserResponseView(prefecture: prefecture)
             }
         }
     }
