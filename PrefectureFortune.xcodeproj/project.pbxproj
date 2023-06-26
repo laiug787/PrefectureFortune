@@ -64,6 +64,9 @@
 				6F474CF72A48B2080019483F /* UserRequestView.swift */,
 				6F474CF92A48B3DA0019483F /* UserResponseView.swift */,
 				6F474CFB2A4956C80019483F /* PrefectureFetcher.swift */,
+				6F474CFF2A49AD5F0019483F /* Models */,
+				6F474CFE2A49AD580019483F /* Views */,
+				6F474CFD2A49AD4F0019483F /* ViewModels */,
 				6F474CEB2A48A1220019483F /* Assets.xcassets */,
 				6F474CED2A48A1220019483F /* Preview Content */,
 			);
@@ -76,6 +79,27 @@
 				6F474CEE2A48A1220019483F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6F474CFD2A49AD4F0019483F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		6F474CFE2A49AD580019483F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6F474CFF2A49AD5F0019483F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
