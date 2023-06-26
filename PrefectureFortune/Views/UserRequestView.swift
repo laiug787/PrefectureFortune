@@ -62,7 +62,7 @@ struct UserRequestView: View {
                         }
                     } label: {
                         HStack(spacing: 20) {
-                            AsyncImage(url: URL(string: prefecture?.logoUrl ?? "https://japan-map.com/wp-content/uploads/nihonchizu-dot-color-500x500.png")) { image in
+                            AsyncImage(url: URL(string: prefecture?.logoUrl ?? Prefecture.preview.logoUrl)) { image in
                                 image
                                     .resizable()
                                     .scaledToFit()
@@ -98,9 +98,7 @@ struct UserRequestView: View {
                 VStack {
                     Spacer()
                     HStack {
-                        Button {
-                            resetPredict()
-                        } label: {
+                        Button(action: resetPredict) {
                             Label("Reset", systemImage: "arrow.triangle.2.circlepath")
                         }
                         .frame(height: 50)
@@ -112,9 +110,7 @@ struct UserRequestView: View {
                         
                         Spacer()
                         
-                        Button {
-                            predict()
-                        } label: {
+                        Button(action: predict) {
                             Label("Predict", systemImage: "magnifyingglass")
                         }
                         .frame(height: 50)

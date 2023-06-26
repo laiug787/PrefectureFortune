@@ -18,12 +18,12 @@ struct Prefecture: Hashable, Codable {
 
 extension Prefecture {
     static var preview: Prefecture {
-        let name: String = "Toyama prefecture"
-        let capital: String = "Toyama City"
-        let citizenDay: MonthDay? = nil
+        let name: String = "Japan"
+        let capital: String = "Tokyo"
+        let citizenDay: MonthDay? = MonthDay(month: 10, day: 1)
         let hasCoastLine: Bool  = true
-        let logoUrl: String = "https://japan-map.com/wp-content/uploads/toyama.png"
-        let brief: String = "Toyama Prefecture is located in the Chubu region of Japan. The prefectural capital is Toyama City. \n It is located on the Sea of Japan side of the Chubu region, roughly in the center of the Hokuriku region when Niigata Prefecture is included. \n *Wikipedia, the free encyclopedia"
+        let logoUrl: String = "https://japan-map.com/wp-content/uploads/nihonchizu-dot-color-500x500.png"
+        let brief: String = "Japan is a country located in East Asia. It is an archipelago consisting of four main islands: Honshu, Hokkaido, Kyushu, and Shikoku. Japan is known for its rich culture, advanced technology, and strong economy. The capital city of Japan is Tokyo. *from: ChatGPT"
         
         return Prefecture(name: name, capital: capital, citizenDay: citizenDay, hasCoastLine: hasCoastLine, logoUrl: logoUrl, brief: brief)
     }
@@ -54,5 +54,25 @@ struct MonthDay: Hashable, Codable {
         let calendar = Calendar(identifier: .gregorian)
         self.month = calendar.component(.month, from: date)
         self.day = calendar.component(.day, from: date)
+    }
+}
+
+extension Date {
+    var yearMonthDayString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateFormatter.dateStyle = .medium
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        
+        return dateFormatter.string(from: self)
+    }
+    
+    var monthDayString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateFormatter.dateStyle = .medium
+        dateFormatter.dateFormat = "MM/dd"
+        
+        return dateFormatter.string(from: self)
     }
 }

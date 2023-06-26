@@ -33,15 +33,31 @@ struct UserResponseView: View {
                             .foregroundColor(.secondary)
                     }
                 }
-                LabeledContent("Citizen Day", value: prefecture.citizenDay?.date.description ?? "nil")
+                LabeledContent("Citizen Day", value: prefecture.citizenDay?.date.monthDayString ?? "nil")
                 LabeledContent("Has coast line", value: prefecture.hasCoastLine.description.capitalized)
                 Text(prefecture.brief)
             }
             
-            Section("User Profile") {
-                LabeledContent("Name", value: user.name)
-                LabeledContent("Birthday", value: user.birthday.date.description)
-                LabeledContent("Blood type", value: user.bloodType.rawValue.uppercased())
+            Section("Your Profile") {
+                Grid {
+                    GridRow {
+                        Image(systemName: "person")
+                            .foregroundColor(.blue)
+                        LabeledContent("Name", value: user.name)
+                    }
+                    Divider()
+                    GridRow {
+                        Image(systemName: "birthday.cake")
+                            .foregroundColor(.orange)
+                        LabeledContent("Birthday", value: user.birthday.date.yearMonthDayString)
+                    }
+                    Divider()
+                    GridRow {
+                        Image(systemName: "drop")
+                            .foregroundColor(.red)
+                        LabeledContent("Blood type", value: user.bloodType.rawValue.uppercased())
+                    }
+                }
             }
         }
         .navigationTitle("Your Results")
