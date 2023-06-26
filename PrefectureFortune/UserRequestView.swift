@@ -8,14 +8,10 @@
 import SwiftUI
 
 struct UserRequestView: View {
-    @State private var user: User = User(
-        name: "",
-        birthday: YearMonthDay(date: Date.now),
-        bloodType: BloodType.ab,
-        today: YearMonthDay(date: Date.now)
-    )
-    
+    @State private var user: User = User.preview
     @State private var prefectures: [Prefecture] = []
+    
+    var prefectureFetcher = PrefectureFetcher()
     
     var body: some View {
         NavigationStack(path: $prefectures) {
@@ -31,19 +27,13 @@ struct UserRequestView: View {
                     .pickerStyle(.segmented)
                 }
                 Section("User Profile Output") {
-                    LabeledContent("Name") {
-                        Text(user.name)
-                    }
-                    LabeledContent("Birthday") {
-                        Text(user.birthday.date.description)
-                    }
-                    LabeledContent("Blood type") {
-                        Text(user.bloodType.rawValue)
-                    }
+                    LabeledContent("Name", value: user.name)
+                    LabeledContent("Birthday", value: user.birthday.date.description)
+                    LabeledContent("Blood type", value: user.bloodType.rawValue)
                 }
                 Section {
-                    Button("Submit") {
-                        prefectures.append(Prefecture.preview)
+                    Button("Predict") {
+                        fetchPrefecture()
                     }
                 }
             }
@@ -53,16 +43,46 @@ struct UserRequestView: View {
             }
         }
     }
+    
+    func fetchPrefecture() {
+        Task {
+            do {
+                let prefecture = try await prefectureFetcher.fetchPrefectureData(user: user)
+                prefectures.append(prefecture)
+            } catch APIError.invalidURL {
+                print("invalid URL")
+            } catch APIError.invalidRequest {
+                print("invalid request")
+            } catch APIError.invalidResponse {
+                print("invalid response")
+            } catch APIError.invalidEncode {
+                print("invalid encode")
+            } catch APIError.invalidDecode {
+                print("invalid decode")
+            }
+        }
+    }
 }
 
-struct User {
+struct User: Codable {
     var name: String
     var birthday: YearMonthDay
     var bloodType: BloodType
     var today: YearMonthDay
 }
 
-struct YearMonthDay {
+extension User {
+    static var preview: User {
+        let name: String = "Yamada Taro"
+        let birthday: YearMonthDay = YearMonthDay(year: 2000, month: 1, day: 1)
+        let bloodType: BloodType = BloodType.ab
+        let today: YearMonthDay = YearMonthDay(date: Date.now)
+        
+        return User(name: name, birthday: birthday, bloodType: bloodType, today: today)
+    }
+}
+
+struct YearMonthDay: Codable {
     var year: Int
     var month: Int
     var day: Int
@@ -102,7 +122,7 @@ struct YearMonthDay {
     }
 }
 
-enum BloodType: String, CaseIterable, Identifiable {
+enum BloodType: String, CaseIterable, Identifiable, Codable {
     case ab, a, b, o
     var id: Self { self }
 }
