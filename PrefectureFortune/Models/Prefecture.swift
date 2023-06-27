@@ -7,13 +7,17 @@
 
 import Foundation
 
-struct Prefecture: Hashable, Codable {
+struct Prefecture: Identifiable, Hashable, Codable {
     let name: String
     let capital: String
     let citizenDay: MonthDay?
     let hasCoastLine: Bool
     let logoUrl: String
     let brief: String
+    
+    var id: String {
+        self.name
+    }
 }
 
 extension Prefecture {

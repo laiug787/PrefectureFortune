@@ -1,0 +1,408 @@
+[
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/tottori.png",
+    "capital" : "鳥取市",
+    "brief" : "鳥取県（とっとりけん）は、日本の中国地方にある県である。県庁所在地は鳥取市。\n日本海側にあり、山陰地方の東側を占める。面積は約3,507平方キロメートルと全国で7番目に小さく、人口は約55万人で最も少ない。基礎自治体は4市14町1村で、市の数も最も少ない。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "鳥取県",
+    "citizen_day" : {
+      "month" : 9,
+      "day" : 12
+    },
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/fukui.png",
+    "capital" : "福井市",
+    "brief" : "福井県（ふくいけん）は、日本の中部地方に位置する県。県庁所在地は福井市。\n北陸地方で最も人口が少ない県である。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "福井県",
+    "citizen_day" : {
+      "month" : 2,
+      "day" : 7
+    },
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "広島市",
+    "brief" : "広島県（ひろしまけん）は、日本の中国地方に位置する県。県庁所在地は広島市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "広島県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/hiroshima.png",
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/fukushima.png",
+    "capital" : "福島市",
+    "brief" : "福島県（ふくしまけん）は、日本の東北地方に位置する県。県庁所在地は福島市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "福島県",
+    "citizen_day" : {
+      "month" : 8,
+      "day" : 21
+    },
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "神戸市",
+    "brief" : "兵庫県（ひょうごけん）は、日本の近畿地方の西端に位置する県。県庁所在地は神戸市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "兵庫県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/hyogo.png",
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/hokkaido.png",
+    "capital" : "札幌市",
+    "brief" : "北海道（ほっかいどう）は、日本の北海道地方に位置する道。道庁所在地は札幌市。\n47都道府県中唯一の「道」である。ブランド総合研究所による「都道府県の魅力度ランキング」で2021年現在、13年連続で1位に選ばれ、観光意欲度、産品購入意欲度でも1位、居住意欲度でも3位となっており、各意欲の面で高い評価を得ている。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "北海道",
+    "citizen_day" : {
+      "month" : 7,
+      "day" : 17
+    },
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "大津市",
+    "brief" : "滋賀県（しがけん）は、日本の近畿地方に位置する県。県庁所在地は大津市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "滋賀県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/shiga.png",
+    "has_coast_line" : false
+  },
+  {
+    "capital" : "横浜市",
+    "brief" : "神奈川県（かながわけん）は、日本の関東地方に位置する県。県庁所在地は横浜市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "神奈川県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/kanagawa.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "奈良市",
+    "brief" : "奈良県（ならけん）は、日本の近畿地方に位置する県。県庁所在地は奈良市。\n紀伊半島内陸部にあり、令制国の大和国の領域を占め、北西部の盆地部を除けば険しい山々がそびえており、人口の偏りが大きい。都道府県面積は全国で8番目に狭く、内陸8県では最も狭い。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "奈良県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/nara.png",
+    "has_coast_line" : false
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/yamanashi.png",
+    "capital" : "甲府市",
+    "brief" : "山梨県（やまなしけん）は、日本の中部地方に位置する県。県庁所在地は甲府市。\n首都圏整備法における首都圏の一角を成す。令制国の甲斐国に相当する。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "山梨県",
+    "citizen_day" : {
+      "month" : 11,
+      "day" : 20
+    },
+    "has_coast_line" : false
+  },
+  {
+    "capital" : "京都市",
+    "brief" : "京都府（きょうとふ）は、日本の近畿地方に位置する府。府庁所在地は京都市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "京都府",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/kyoto.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "那覇市",
+    "brief" : "沖縄県（おきなわけん）は、日本の九州地方に位置する県。県庁所在地は那覇市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "沖縄県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/okinawa.png",
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/aichi.png",
+    "capital" : "名古屋市",
+    "brief" : "愛知県（あいちけん）は、日本の中部地方に位置する県。県庁所在地は名古屋市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "愛知県",
+    "citizen_day" : {
+      "month" : 11,
+      "day" : 27
+    },
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "福岡市",
+    "brief" : "福岡県（ふくおかけん）は、日本の九州地方に位置する県。県庁所在地は福岡市。\n九州地方北部に位置し、九州地方の県では最も人口が多い。県庁所在地の福岡市は、九州地方最大の人口を擁する都市であり、西日本においても大阪市に次ぐ人口を擁する都市である。福岡市と北九州市の2つの政令指定都市を抱え、いわゆる三大都市圏以外では人口密度が1,000人\/km2を超える唯一の県である。全国では人口は北海道に次ぐ9位、面積は千葉県に次ぐ29位。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "福岡県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/fukuoka.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "高松市",
+    "brief" : "香川県（かがわけん）は、日本の四国地方に位置する県。県庁所在地は高松市。\n令制国の讃岐国に当たる。県名は旧讃岐国のほぼ中央に存在し、かつて高松が属していた古代以来の郡である香川郡から採られた。面積は47都道府県で一番小さく、1945年～1972年にかけてアメリカの統治下であった沖縄県を除くと最も遅く独立した県である。都市の利便性と豊かな自然が調和した生活環境を持つ。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "香川県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/kagawa.png",
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/chiba.png",
+    "capital" : "千葉市",
+    "brief" : "千葉県（ちばけん）は、日本の関東地方に位置する県。県庁所在地は千葉市。\n首都圏を構成し、都道府県人口・人口密度は第6位、県の財政力指数は全国第5位、面積は第28位の規模である。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "千葉県",
+    "citizen_day" : {
+      "month" : 6,
+      "day" : 15
+    },
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/ibaraki.png",
+    "capital" : "水戸市",
+    "brief" : "茨城県（いばらきけん）は、日本の関東地方に位置する県。県庁所在地は水戸市。\n首都圏を構成し、都道府県人口は全国11位、面積は全国24位である。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "茨城県",
+    "citizen_day" : {
+      "month" : 11,
+      "day" : 13
+    },
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/kagoshima.png",
+    "capital" : "鹿児島市",
+    "brief" : "鹿児島県（かごしまけん）は、日本の九州地方に位置する県。県庁所在地は鹿児島市。\n九州島の南側には離島（薩南諸島）が点在する。九州島の部分は県本土と表現され、2つの半島（薩摩半島・大隅半島）を有する。\n霧島山、桜島、種子島宇宙センター、世界自然遺産の屋久島、奄美大島や徳之島などがあり、自然・文化・観光・産業などの面において、豊富な資源を有している。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "鹿児島県",
+    "citizen_day" : {
+      "month" : 7,
+      "day" : 14
+    },
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/gumma.png",
+    "capital" : "前橋市",
+    "brief" : "群馬県（ぐんまけん）は、日本の関東地方に位置する県。県庁所在地は前橋市。\n米麦栽培・養蚕・繊維工業などの伝統産業に加え、畜産・野菜栽培・機械工業が盛んで、県北西部は温泉・保養地である。利根川上流ダム群の豊かな水量は県内はもとより、東京都を始めとする関東の電力・上水道の供給源となっている。県南東部は都市化が進み、首都圏整備法の都市開発区域に指定され、工業地域を形成している。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "群馬県",
+    "citizen_day" : {
+      "month" : 10,
+      "day" : 28
+    },
+    "has_coast_line" : false
+  },
+  {
+    "capital" : "山口市",
+    "brief" : "山口県（やまぐちけん）は、日本の中国地方に位置する県。県庁所在地は山口市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "山口県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/yamaguchi.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "新潟市",
+    "brief" : "新潟県（にいがたけん）は、日本の県。県庁所在地は新潟市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "新潟県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/niigata.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "長野市",
+    "brief" : "長野県（ながのけん）は、日本の中部地方に位置する県。県庁所在地は長野市。\n令制国名の信濃国にちなみ、信州とも呼ばれている。海に面していない内陸県であり、日本アルプスを始め大規模な山岳地があるため可住地面積率は低い。キャッチフレーズはしあわせ信州。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "長野県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/nagano.png",
+    "has_coast_line" : false
+  },
+  {
+    "capital" : "盛岡市",
+    "brief" : "岩手県（いわてけん）は、日本の東北地方に位置する県。県庁所在地は盛岡市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "岩手県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/iwate.png",
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/saitama.png",
+    "capital" : "さいたま市",
+    "brief" : "埼玉県（さいたまけん）は、日本の関東地方に位置する県。県庁所在地はさいたま市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "埼玉県",
+    "citizen_day" : {
+      "month" : 11,
+      "day" : 14
+    },
+    "has_coast_line" : false
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/akita.png",
+    "capital" : "秋田市",
+    "brief" : "秋田県（あきたけん）は、日本の東北地方に位置する県。県庁所在地は秋田市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "秋田県",
+    "citizen_day" : {
+      "month" : 8,
+      "day" : 29
+    },
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "岐阜市",
+    "brief" : "岐阜県（ぎふけん）は、日本の中部地方に位置する県。県庁所在地は岐阜市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "岐阜県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/gifu.png",
+    "has_coast_line" : false
+  },
+  {
+    "capital" : "高知市",
+    "brief" : "高知県（こうちけん）は、日本の四国地方に位置する県。県庁所在地は高知市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "高知県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/kochi.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "熊本市",
+    "brief" : "熊本県（くまもとけん）は、日本の九州地方に位置する県。県庁所在地は熊本市。\n令制国の肥後国に当たる。有明海、不知火海、東シナ海に面している。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "熊本県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/kumamoto.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "松江市",
+    "brief" : "島根県（しまねけん）は、日本の中国地方（山陰地方）にある県。県庁所在地は松江市。\n本州西部に位置し、山陰地方の西側を占める。離島の隠岐諸島や竹島なども含む。\n旧令制国における出雲国・石見国・隠岐国の3国に相当する。現在でも県内の地域分類として出雲地方・石見地方・隠岐地方の3区分が用いられることがある。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "島根県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/shimane.png",
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/tochigi.png",
+    "capital" : "宇都宮市",
+    "brief" : "栃木県（とちぎけん）は、日本の関東地方に位置する県。県庁所在地は宇都宮市。\n県北部に日光国立公園があり、観光地・保養地の日光や那須が知られる。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "栃木県",
+    "citizen_day" : {
+      "month" : 6,
+      "day" : 15
+    },
+    "has_coast_line" : false
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/wakayama.png",
+    "capital" : "和歌山市",
+    "brief" : "和歌山県（わかやまけん）は、日本の近畿地方に位置する県。県庁所在地は和歌山市。\n日本最大の半島である紀伊半島の南西側に位置し、県南部には大規模な山地を有する。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "和歌山県",
+    "citizen_day" : {
+      "month" : 11,
+      "day" : 22
+    },
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/shizuoka.png",
+    "capital" : "静岡市",
+    "brief" : "静岡県（しずおかけん）は、日本の中部地方に位置する県。県庁所在地は静岡市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "静岡県",
+    "citizen_day" : {
+      "month" : 8,
+      "day" : 21
+    },
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "大阪市",
+    "brief" : "大阪府（おおさかふ）は、日本の近畿地方に位置する府。府庁所在地は大阪市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "大阪府",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/osaka.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "青森市",
+    "brief" : "青森県（あおもりけん）は、日本の東北地方に位置する県。県庁所在地は青森市。\n県の人口は全国31位、面積は全国8位。令制国の陸奥国（むつのくに、りくおうのくに）北部にあたる。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "青森県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/aomori.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "金沢市",
+    "brief" : "石川県（いしかわけん）は、日本の中部地方に位置する県。県庁所在地は金沢市。\n本州の中央部、日本海側の北陸地方に位置する。県域は令制国の加賀国と能登国に当たる。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "石川県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/ishikawa.png",
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/tokyo.png",
+    "capital" : "東京都区部",
+    "brief" : "東京都（とうきょうと）は、日本の首都。関東地方に位置する都。都庁所在地は新宿区。\n区部（特別区23区）、多摩地域（26市と西多摩郡3町1村）および島嶼部（2町7村）からなる。関東南西部にあって東西に細長い都域を有し、東部は東京湾に面する。西部は雲取山を最高峰とする関東山地となる。\n行政機関、金融機関や大企業などが集中し、新聞・放送・出版などの文化面、大学・研究機関などの教育・学術面においても日本の中枢をなす。交通面でも鉄道網、道路網、航空路の中心。世界最大級の人口を有する国際的大都市である。\n東京都と周辺7県で首都圏を構成している。特に東京圏（東京都・神奈川県・千葉県・埼玉県）の総人口は約3500万人に達し、日本の人口の約30%を占める。東京都市圏の人口は世界最大である。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "東京都",
+    "citizen_day" : {
+      "month" : 10,
+      "day" : 1
+    },
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/toyama.png",
+    "capital" : "富山市",
+    "brief" : "富山県（とやまけん）は、日本の中部地方に位置する県。県庁所在地は富山市。\n中部地方の日本海側、新潟県を含めた場合の北陸地方のほぼ中央にある。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "富山県",
+    "citizen_day" : {
+      "month" : 5,
+      "day" : 9
+    },
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "岡山市",
+    "brief" : "岡山県（おかやまけん）は、日本の中国地方に位置する県。県庁所在地は岡山市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "岡山県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/okayama.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "山形市",
+    "brief" : "山形県（やまがたけん）は、日本の東北地方に位置する県。県庁所在地は山形市。県名の「山形」は、『和名類聚抄』に今の山形市の南側を「山方やまがた郷」と言ったことに由来すると言われている。\n県域の西側は日本海に面する。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "山形県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/yamagata.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "徳島市",
+    "brief" : "徳島県（とくしまけん）は、日本の四国地方に位置する県。県庁所在地は徳島市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "徳島県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/tokushima.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "宮崎市",
+    "brief" : "宮崎県（みやざきけん）は、日本の九州地方に位置する県。県庁所在地は宮崎市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "宮崎県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/miyazaki.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "仙台市",
+    "brief" : "宮城県（みやぎけん）は、日本の東北地方に位置する県。県庁所在地は仙台市。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "宮城県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/miyagi.png",
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/ehime.png",
+    "capital" : "松山市",
+    "brief" : "愛媛県（えひめけん）は、日本の四国地方に位置する県。四国地方では最も人口が多い県。県庁所在地は松山市。都市規模は、今治市、新居浜市が続く。令制国の伊予国に当たる。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "愛媛県",
+    "citizen_day" : {
+      "month" : 2,
+      "day" : 20
+    },
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "大分市",
+    "brief" : "大分県（おおいたけん）は、日本の九州地方に位置する県。県庁所在地は大分市。\n全国的に知名度が高い別府温泉や由布院温泉をはじめとする多くの温泉を有し、源泉数（4,445か所）、湧出量（279,253リットル\/分）ともに日本一であり 、「日本一のおんせん県おおいた」をキャッチフレーズに温泉をアピールしている。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "大分県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/oita.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "佐賀市",
+    "brief" : "佐賀県（さがけん）は、日本の九州地方に位置する県。県庁所在地は佐賀市。\nお茶や唐津・伊万里・有田などの古くからの陶磁器の産地として有名で、玄界灘と有明海の2つの海に接する。令制国の肥前国東部に相当する。明治の府県制成立の際、同国は佐賀県と長崎県の2県として分立した。九州地方の中では最も面積、経済規模が小さい県であり、人口は隣接する福岡県の2割以下であり、福岡市の半分程度に過ぎない。一方、人口密度は全国で16番目に高く、広島県の人口密度を上回っている。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "佐賀県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/saga.png",
+    "has_coast_line" : true
+  },
+  {
+    "capital" : "長崎市",
+    "brief" : "長崎県（ながさきけん）は、日本の九州地方に位置する県。県庁所在地は長崎市。\n五島列島、壱岐島、対馬など数多くの島嶼を含み、47都道府県中最も島が多いことで知られる。また、多島であるうえにリアス式海岸を多く擁することから海岸線の長さは47都道府県中第2位となっている。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "長崎県",
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/nagasaki.png",
+    "has_coast_line" : true
+  },
+  {
+    "logo_url" : "https:\/\/japan-map.com\/wp-content\/uploads\/mie.png",
+    "capital" : "津市",
+    "brief" : "三重県（みえけん）は、日本の近畿地方に位置する県。県庁所在地は津市。\n江戸時代から、お伊勢参り（お蔭参り）の名で知られる伊勢神宮を擁する地域として発展した。令制国では、伊勢国・志摩国・伊賀国の全域と、紀伊国（当初は熊野国）の一部、計4国より構成される。包括する旧律令国の数は、7国を包括する兵庫県に次ぐ。北勢、伊賀、中勢、南勢（伊勢志摩）、東紀州の5地域に区分される。\n※出典: フリー百科事典『ウィキペディア（Wikipedia）』",
+    "name" : "三重県",
+    "citizen_day" : {
+      "month" : 4,
+      "day" : 18
+    },
+    "has_coast_line" : true
+  }
+]
+
