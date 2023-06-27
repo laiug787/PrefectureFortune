@@ -31,7 +31,7 @@ final class PrefectureViewModel: ObservableObject {
 
 enum ViewStyle {
     case gridView
-    case tableView
+    case ListView
 }
 
 let samplePrefectures: [Prefecture] = {
