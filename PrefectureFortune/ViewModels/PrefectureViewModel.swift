@@ -11,11 +11,21 @@ final class PrefectureViewModel: ObservableObject {
     @Published var prefectures: [Prefecture]
     @Published var prefecturePath: [Prefecture]
     @Published var viewStyle: ViewStyle
+    @Published var searchText: String
+    
+    var searchResults: [Prefecture] {
+        if searchText.isEmpty {
+            return prefectures
+        } else {
+            return prefectures.filter { $0.name.contains(searchText) }
+        }
+    }
     
     init() {
         self.prefectures = samplePrefectures
         self.prefecturePath = []
         self.viewStyle = ViewStyle.gridView
+        self.searchText = ""
     }
 }
 
