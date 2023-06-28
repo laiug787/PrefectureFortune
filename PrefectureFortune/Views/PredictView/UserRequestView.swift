@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct UserRequestView: View {
+    @EnvironmentObject var favoritePrefectureVM: FavoritePrefectureViewModel
+    
     @State private var user: User = User.preview
     @State private var prefecture: Prefecture? = nil
     private var prefectureFetcher = PrefectureFetcher()
@@ -16,43 +18,8 @@ struct UserRequestView: View {
         NavigationStack {
             List {
                 Section("Your Information") {
-                    Grid {
-                        GridRow {
-                            Image(systemName: "person")
-                                .foregroundColor(.blue)
-                            HStack {
-                                TextField("Name", text: $user.name)
-                                Image(systemName: "xmark.circle.fill")
-                                    .foregroundStyle(.tertiary)
-                                    .foregroundColor(.primary)
-                                    .onTapGesture {
-                                        user.name = ""
-                                    }
-                            }
-                            .gridColumnAlignment(.leading)
-                            .gridCellColumns(2)
-                        }
-                        Divider().padding(.top, 7)
-                        GridRow {
-                            Image(systemName: "birthday.cake")
-                                .foregroundColor(.orange)
-                            DatePicker("Birthday", selection: $user.birthday.date, displayedComponents: .date)
-                                .gridCellColumns(2)
-                        }
-                        GridRow {
-                            Image(systemName: "drop")
-                                .foregroundColor(.red)
-                            Text("Blood Type")
-                            Picker("Blood type", selection: $user.bloodType) {
-                                ForEach(BloodType.allCases) { type in
-                                    Text(type.rawValue.uppercased())
-                                }
-                            }
-                            .pickerStyle(.segmented)
-                        }
-                    }
+                    requestView()
                 }
-                
                 Section {
                     NavigationLink {
                         if let prefecture = prefecture {
@@ -61,33 +28,27 @@ struct UserRequestView: View {
                             Text("nil")
                         }
                     } label: {
-                        HStack(spacing: 20) {
-                            AsyncImage(url: URL(string: prefecture?.logoUrl ?? Prefecture.preview.logoUrl)) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .shadow(radius: 5)
-                                    .frame(width: 100, height: 100)
-                            } placeholder: {
-                                ProgressView()
-                                    .frame(width: 100, height: 100)
-                            }
-                            VStack(alignment: .leading) {
-                                Text(prefecture?.name ?? "Japan")
-                                    .font(.title)
-                                Text(prefecture?.capital ?? "Tokyo")
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                            }
-                            .redacted(reason: prefecture == nil ? .placeholder : [])
+                        responseView()
+                    }
+                    .swipeActions(edge: .leading) {
+                        Button {
+                            guard let prefecture = prefecture else { return }
+                            favoritePrefectureVM.addToFavorite(prefecture: prefecture)
+                        } label: {
+                            Label("Add", systemImage: "star")
                         }
                     }
-                    .disabled(prefecture == nil)
+                    .swipeActions(edge: .trailing) {
+                        Button(action: resetPredict) {
+                            Label("Reset", systemImage: "arrow.triangle.2.circlepath")
+                        }
+                    }
                 } header: {
                     Text("Recommended Prefecture")
                 } footer: {
                     Text("We will find the best prefectures for you from all over Japan.")
                 }
+                .disabled(prefecture == nil)
             }
             .navigationTitle("Predict For You")
             .navigationBarTitleDisplayMode(.large)
@@ -125,6 +86,67 @@ struct UserRequestView: View {
         }
     }
     
+    private func requestView() -> some View {
+        Grid {
+            GridRow {
+                Image(systemName: "person")
+                    .foregroundColor(.blue)
+                HStack {
+                    TextField("Name", text: $user.name)
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(.tertiary)
+                        .foregroundColor(.primary)
+                        .onTapGesture {
+                            user.name = ""
+                        }
+                }
+                .gridColumnAlignment(.leading)
+                .gridCellColumns(2)
+            }
+            Divider().padding(.top, 7)
+            GridRow {
+                Image(systemName: "birthday.cake")
+                    .foregroundColor(.orange)
+                DatePicker("Birthday", selection: $user.birthday.date, displayedComponents: .date)
+                    .gridCellColumns(2)
+            }
+            GridRow {
+                Image(systemName: "drop")
+                    .foregroundColor(.red)
+                Text("Blood Type")
+                Picker("Blood type", selection: $user.bloodType) {
+                    ForEach(BloodType.allCases) { type in
+                        Text(type.rawValue.uppercased())
+                    }
+                }
+                .pickerStyle(.segmented)
+            }
+        }
+    }
+    
+    private func responseView() -> some View {
+        HStack(spacing: 20) {
+            AsyncImage(url: URL(string: prefecture?.logoUrl ?? Prefecture.preview.logoUrl)) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .shadow(radius: 5)
+                    .frame(width: 100, height: 100)
+            } placeholder: {
+                ProgressView()
+                    .frame(width: 100, height: 100)
+            }
+            VStack(alignment: .leading) {
+                Text(prefecture?.name ?? "Japan")
+                    .font(.title)
+                Text(prefecture?.capital ?? "Tokyo")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            .redacted(reason: prefecture == nil ? .placeholder : [])
+        }
+    }
+    
     private func resetPredict() {
         user = User.preview
         prefecture = nil
@@ -159,5 +181,6 @@ struct UserRequestView_Previews: PreviewProvider {
             UserRequestView()
                 .tabItem { Label("Predict", systemImage: "magnifyingglass") }
         }
+        .environmentObject(FavoritePrefectureViewModel())
     }
 }
