@@ -12,6 +12,7 @@ struct PrefectureFortuneApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modifier(AppearanceModifier())
                 .environmentObject(FavoritePrefectureViewModel())
         }
     }
