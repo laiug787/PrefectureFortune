@@ -23,7 +23,7 @@ struct PrefectureNavigationStack: View {
     }
     
     var body: some View {
-        NavigationStack(path: $prefectureVM.prefecturePath) {
+        NavigationStack {
             Group {
                 if prefectureVM.viewStyle == .gridView {
                     PrefectureGridView(prefectures: prefectureVM.searchResults)

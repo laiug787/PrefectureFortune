@@ -8,23 +8,22 @@
 import SwiftUI
 
 struct AppTabView: View {
+    @Binding var selection: AppScreen?
+    
     var body: some View {
-        TabView {
-            PrefectureNavigationStack()
-                .tabItem { Label("Prefectures", systemImage: "rectangle.stack") }
-            FavoritePrefectureNavigationStack()
-                .tabItem { Label("Favorites", systemImage: "star.square.on.square") }
-            UserRequestView()
-                .tabItem { Label("Predict", systemImage: "magnifyingglass") }
-            SettingNavigationStack()
-                .tabItem { Label("Settings", systemImage: "gear") }
+        TabView(selection: $selection) {
+            ForEach(AppScreen.allCases) { screen in
+                screen.destination
+                    .tag(screen as AppScreen?)
+                    .tabItem { screen.label }
+            }
         }
     }
 }
 
 struct AppTabView_Previews: PreviewProvider {
     static var previews: some View {
-        AppTabView()
+        AppTabView(selection: .constant(.predict))
             .environmentObject(FavoritePrefectureViewModel())
     }
 }

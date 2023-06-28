@@ -8,8 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
+    
+    @State private var selection: AppScreen? = .settings
+    
+    var prefersTabNavigation: Bool {
+        if horizontalSizeClass == .compact {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     var body: some View {
-        AppTabView()
+        if prefersTabNavigation {
+            AppTabView(selection: $selection)
+        } else {
+            NavigationSplitView {
+                AppSidebarList(selection: $selection)
+            } detail: {
+                AppDetailColumn(screen: $selection)
+            }
+        }
     }
 }
 
