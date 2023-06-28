@@ -20,8 +20,12 @@ struct UserRequestView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Your Information") {
+                Section {
                     requestView()
+                } header: {
+                    Text("Information")
+                } footer: {
+                    Text("Person you want to tell a fortune for.")
                 }
                 Section {
                     responseView()
@@ -29,10 +33,14 @@ struct UserRequestView: View {
                 } header: {
                     Text("Recommended Prefecture")
                 } footer: {
-                    Text("We will find the best prefectures for you from all over Japan.")
+                    if predictVM.prefecture == .preview {
+                        Text("We will find the best prefectures for you from all over Japan.")
+                    } else {
+                        Text("We have found the recommended prefecture!")
+                    }
                 }
             }
-            .navigationTitle("Predict For You")
+            .navigationTitle("Predict Prefecture")
             .navigationBarTitleDisplayMode(.large)
             .overlay {
                 VStack {
@@ -64,22 +72,34 @@ struct UserRequestView: View {
                         focusedField = nil
                     }
             )
-            .alert(isPresented: $predictVM.showingAlert) {
-                Alert(
-                    title: Text("Enter a name"),
-                    message: Text("Name can't be blank.")
-                )
+            .alert("Enter a name", isPresented: $predictVM.showingAlert) {
+                Button("OK") {
+                    focusedField = .name
+                }
+            } message: {
+                Text("Name can't be blank.")
             }
         }
     }
     
     private func requestView() -> some View {
-        Grid(horizontalSpacing: 12) {
-            GridRow {
-                icon(systemName: "person.fill", color: .blue)
+        Group {
+            Label {
                 HStack {
                     TextField("Name", text: $predictVM.user.name)
                         .focused($focusedField, equals: .name)
+                        .onChange(of: predictVM.user.name) { _ in
+                            predictVM.resetPrefecture()
+                        }
+                        .onReceive(NotificationCenter.default.publisher(for: UITextField.textDidBeginEditingNotification)){ obj in
+                            // Process to select all text
+                            if let textField = obj.object as? UITextField {
+                                textField.selectedTextRange = textField.textRange(
+                                    from: textField.beginningOfDocument,
+                                    to: textField.endOfDocument
+                                )
+                            }
+                        }
                     Image(systemName: "xmark.circle.fill")
                         .foregroundStyle(.tertiary)
                         .foregroundColor(.primary)
@@ -88,24 +108,32 @@ struct UserRequestView: View {
                             predictVM.user.name = ""
                         }
                 }
-                .gridColumnAlignment(.leading)
-                .gridCellColumns(2)
+            } icon: {
+                icon(systemName: "person.fill", color: .blue)
             }
-            Divider()
-            GridRow {
-                icon(systemName: "birthday.cake.fill", color: .orange)
+            Label {
                 DatePicker("Birthday", selection: $predictVM.user.birthday.date, displayedComponents: .date)
-                    .gridCellColumns(2)
+                    .onChange(of: predictVM.user.birthday.date) { _ in
+                        predictVM.resetPrefecture()
+                    }
+            } icon: {
+                icon(systemName: "birthday.cake.fill", color: .orange)
             }
-            GridRow {
-                icon(systemName: "drop.fill", color: .red)
+            Label {
                 Text("Blood Type")
+                Spacer()
                 Picker("Blood type", selection: $predictVM.user.bloodType) {
                     ForEach(BloodType.allCases) { type in
-                        Text(type.rawValue.uppercased())
+                        Text(type.rawValue.uppercased()).tag(type.id)
                     }
                 }
                 .pickerStyle(.segmented)
+                .onChange(of: predictVM.user.bloodType) { _ in
+                    predictVM.resetPrefecture()
+                }
+                .frame(maxWidth: 410)
+            } icon: {
+                icon(systemName: "drop.fill", color: .red)
             }
         }
     }
@@ -147,17 +175,8 @@ struct UserRequestView: View {
         } label: {
             responseRow()
         }
-        .swipeActions(edge: .leading) {
-            addToFavoriteButton()
-                .tint(.yellow)
-        }
-        .swipeActions(edge: .trailing) {
-            resetButton()
-                .tint(.red)
-        }
         .contextMenu {
             addToFavoriteButton()
-            resetButton()
         }
     }
     
@@ -171,7 +190,7 @@ struct UserRequestView: View {
     
     private func resetButton() -> some View {
         Button {
-            predictVM.resetPredict()
+            predictVM.resetPrefecture()
         } label: {
             Label("Reset", systemImage: "arrow.triangle.2.circlepath")
         }
@@ -186,7 +205,6 @@ struct UserRequestView: View {
         }
     }
 }
-
 
 struct UserRequestView_Previews: PreviewProvider {
     static var previews: some View {

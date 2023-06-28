@@ -13,25 +13,6 @@ struct UserResponseView: View {
     
     var body: some View {
         List {
-            Section("Your Profile") {
-                Grid(horizontalSpacing: 12) {
-                    GridRow {
-                        icon(systemName: "person.fill", color: .blue)
-                        LabeledContent("Name", value: user.name)
-                    }
-                    Divider()
-                    GridRow {
-                        icon(systemName: "birthday.cake.fill", color: .orange)
-                        LabeledContent("Birthday", value: user.birthday.date.yearMonthDayString)
-                    }
-                    Divider()
-                    GridRow {
-                        icon(systemName: "drop.fill", color: .red)
-                        LabeledContent("Blood type", value: user.bloodType.rawValue.uppercased())
-                    }
-                }
-            }
-
             Section("Prefecture") {
                 HStack(spacing: 20) {
                     AsyncImage(url: URL(string: prefecture.logoUrl)) { image in
@@ -55,7 +36,26 @@ struct UserResponseView: View {
                 LabeledContent("Citizen Day", value: prefecture.citizenDay?.date.monthDayString ?? "nil")
                 LabeledContent("Has coast line", value: prefecture.hasCoastLine.description.capitalized)
                 Text(prefecture.brief)
-            }            
+            }
+            
+            Section("Recommended for") {
+                Grid(horizontalSpacing: 12) {
+                    GridRow {
+                        icon(systemName: "person.fill", color: .blue)
+                        LabeledContent("Name", value: user.name)
+                    }
+                    Divider()
+                    GridRow {
+                        icon(systemName: "birthday.cake.fill", color: .orange)
+                        LabeledContent("Birthday", value: user.birthday.date.yearMonthDayString)
+                    }
+                    Divider()
+                    GridRow {
+                        icon(systemName: "drop.fill", color: .red)
+                        LabeledContent("Blood type", value: user.bloodType.rawValue.uppercased())
+                    }
+                }
+            }
         }
         .navigationTitle("Your Results")
         .navigationBarTitleDisplayMode(.inline)

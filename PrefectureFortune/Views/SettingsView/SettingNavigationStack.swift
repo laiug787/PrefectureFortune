@@ -45,7 +45,7 @@ struct SettingNavigationStack: View {
                     }
                 } header: {
                     HStack {
-                        Text("Your Information")
+                        Text("My Information")
                         Spacer()
                         Button {
                             presentingEditAccountSheet = true
@@ -90,7 +90,7 @@ struct SettingNavigationStack: View {
         Image(systemName: systemName)
             .frame(width: 26, height: 26)
             .background(in: RoundedRectangle(cornerRadius: 5, style: .continuous))
-            .backgroundStyle(color)
+            .backgroundStyle(color.gradient)
             .foregroundStyle(.white.shadow(.drop(radius: 1)))
     }
 }

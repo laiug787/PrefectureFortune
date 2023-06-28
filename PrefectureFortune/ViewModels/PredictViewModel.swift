@@ -20,9 +20,8 @@ final class PredictViewModel: ObservableObject {
         self.showingAlert = false
         self.prefectureFetcher = PrefectureFetcher()
     }
-    
-    func resetPredict() {
-        user = User.preview
+
+    func resetPrefecture() {
         prefecture = Prefecture.preview
     }
     
