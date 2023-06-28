@@ -9,10 +9,13 @@ import SwiftUI
 
 struct UserRequestView: View {
     @EnvironmentObject var favoritePrefectureVM: FavoritePrefectureViewModel
+    @StateObject private var predictVM = PredictViewModel()
+    @FocusState private var focusedField: FocusedField?
+    @State private var isFocusedBefore: Bool = false
     
-    @State private var user: User = User.preview
-    @State private var prefecture: Prefecture? = nil
-    private var prefectureFetcher = PrefectureFetcher()
+    enum FocusedField: Hashable {
+        case name
+    }
     
     var body: some View {
         NavigationStack {
@@ -21,100 +24,83 @@ struct UserRequestView: View {
                     requestView()
                 }
                 Section {
-                    NavigationLink {
-                        if let prefecture = prefecture {
-                            UserResponseView(user: user, prefecture: prefecture)
-                        } else {
-                            Text("nil")
-                        }
-                    } label: {
-                        responseView()
-                    }
-                    .swipeActions(edge: .leading) {
-                        Button {
-                            guard let prefecture = prefecture else { return }
-                            favoritePrefectureVM.addToFavorite(prefecture: prefecture)
-                        } label: {
-                            Label("Add", systemImage: "star")
-                        }
-                    }
-                    .swipeActions(edge: .trailing) {
-                        Button(action: resetPredict) {
-                            Label("Reset", systemImage: "arrow.triangle.2.circlepath")
-                        }
-                    }
+                    responseView()
+                        .disabled(predictVM.prefecture == .preview)
                 } header: {
                     Text("Recommended Prefecture")
                 } footer: {
                     Text("We will find the best prefectures for you from all over Japan.")
                 }
-                .disabled(prefecture == nil)
             }
             .navigationTitle("Predict For You")
             .navigationBarTitleDisplayMode(.large)
-            .refreshable {
-                predict()
-            }
             .overlay {
                 VStack {
                     Spacer()
                     HStack {
-                        Button(action: resetPredict) {
-                            Label("Reset", systemImage: "arrow.triangle.2.circlepath")
-                        }
-                        .frame(height: 50)
-                        .padding(8)
-                        .buttonStyle(.borderedProminent)
-                        .buttonBorderShape(.roundedRectangle(radius: 12))
-                        .tint(.gray)
-                        .shadow(radius: 7)
-                        
+                        resetButton()
+                            .tint(.gray)
                         Spacer()
-                        
-                        Button(action: predict) {
-                            Label("Predict", systemImage: "magnifyingglass")
-                        }
-                        .frame(height: 50)
-                        .padding(8)
-                        .buttonStyle(.borderedProminent)
-                        .buttonBorderShape(.roundedRectangle(radius: 12))
-                        .shadow(radius: 7)
+                        predictButton()
                     }
+                    .font(.headline)
+                    .frame(height: 50)
+                    .padding(8)
+                    .buttonStyle(.borderedProminent)
+                    .buttonBorderShape(.capsule)
+                    .controlSize(.large)
+                    .shadow(radius: 4)
                 }
                 .padding()
+            }
+            .onAppear {
+                guard !isFocusedBefore else { return }
+                focusedField = .name
+                isFocusedBefore.toggle()
+            }
+            .simultaneousGesture(
+                DragGesture()
+                    .onChanged { _ in
+                        focusedField = nil
+                    }
+            )
+            .alert(isPresented: $predictVM.showingAlert) {
+                Alert(
+                    title: Text("Enter a name"),
+                    message: Text("Name can't be blank.")
+                )
             }
         }
     }
     
     private func requestView() -> some View {
-        Grid {
+        Grid(horizontalSpacing: 12) {
             GridRow {
-                Image(systemName: "person")
-                    .foregroundColor(.blue)
+                icon(systemName: "person.fill", color: .blue)
                 HStack {
-                    TextField("Name", text: $user.name)
+                    TextField("Name", text: $predictVM.user.name)
+                        .focused($focusedField, equals: .name)
                     Image(systemName: "xmark.circle.fill")
                         .foregroundStyle(.tertiary)
                         .foregroundColor(.primary)
                         .onTapGesture {
-                            user.name = ""
+                            focusedField = .name
+                            predictVM.user.name = ""
                         }
                 }
                 .gridColumnAlignment(.leading)
                 .gridCellColumns(2)
             }
-            Divider().padding(.top, 7)
+            Divider()
             GridRow {
-                Image(systemName: "birthday.cake")
-                    .foregroundColor(.orange)
-                DatePicker("Birthday", selection: $user.birthday.date, displayedComponents: .date)
+                icon(systemName: "birthday.cake.fill", color: .orange)
+                DatePicker("Birthday", selection: $predictVM.user.birthday.date, displayedComponents: .date)
                     .gridCellColumns(2)
             }
             GridRow {
-                Image(systemName: "drop")
-                    .foregroundColor(.red)
+                icon(systemName: "drop.fill", color: .red)
                 Text("Blood Type")
-                Picker("Blood type", selection: $user.bloodType) {
+                Picker("Blood type", selection: $predictVM.user.bloodType) {
                     ForEach(BloodType.allCases) { type in
                         Text(type.rawValue.uppercased())
                     }
@@ -124,9 +110,17 @@ struct UserRequestView: View {
         }
     }
     
-    private func responseView() -> some View {
+    private func icon(systemName: String, color: Color) -> some View {
+        Image(systemName: systemName)
+            .frame(width: 26, height: 26)
+            .background(in: RoundedRectangle(cornerRadius: 5, style: .continuous))
+            .backgroundStyle(color.gradient)
+            .foregroundStyle(.white.shadow(.drop(radius: 1)))
+    }
+    
+    private func responseRow() -> some View {
         HStack(spacing: 20) {
-            AsyncImage(url: URL(string: prefecture?.logoUrl ?? Prefecture.preview.logoUrl)) { image in
+            AsyncImage(url: URL(string: predictVM.prefecture.logoUrl)) { image in
                 image
                     .resizable()
                     .scaledToFit()
@@ -137,37 +131,58 @@ struct UserRequestView: View {
                     .frame(width: 100, height: 100)
             }
             VStack(alignment: .leading) {
-                Text(prefecture?.name ?? "Japan")
+                Text(predictVM.prefecture.name)
                     .font(.title)
-                Text(prefecture?.capital ?? "Tokyo")
+                Text(predictVM.prefecture.capital)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
-            .redacted(reason: prefecture == nil ? .placeholder : [])
+            .redacted(reason: predictVM.prefecture == .preview ? .placeholder : [])
         }
     }
     
-    private func resetPredict() {
-        user = User.preview
-        prefecture = nil
+    private func responseView() -> some View {
+        NavigationLink {
+            UserResponseView(user: predictVM.user, prefecture: predictVM.prefecture)
+        } label: {
+            responseRow()
+        }
+        .swipeActions(edge: .leading) {
+            addToFavoriteButton()
+                .tint(.yellow)
+        }
+        .swipeActions(edge: .trailing) {
+            resetButton()
+                .tint(.red)
+        }
+        .contextMenu {
+            addToFavoriteButton()
+            resetButton()
+        }
     }
     
-    private func predict() {
-        Task {
-            do {
-                let prefecture = try await prefectureFetcher.fetchPrefectureData(user: user)
-                self.prefecture = prefecture
-            } catch APIError.invalidURL {
-                print("invalid URL")
-            } catch APIError.invalidRequest {
-                print("invalid request")
-            } catch APIError.invalidResponse {
-                print("invalid response")
-            } catch APIError.invalidEncode {
-                print("invalid encode")
-            } catch APIError.invalidDecode {
-                print("invalid decode")
-            }
+    private func addToFavoriteButton() -> some View {
+        Button {
+            favoritePrefectureVM.addToFavorite(prefecture: predictVM.prefecture)
+        } label: {
+            Label("Add", systemImage: "star")
+        }
+    }
+    
+    private func resetButton() -> some View {
+        Button {
+            predictVM.resetPredict()
+        } label: {
+            Label("Reset", systemImage: "arrow.triangle.2.circlepath")
+        }
+    }
+    
+    private func predictButton() -> some View {
+        Button {
+            predictVM.predict()
+            focusedField = nil
+        } label: {
+            Label("Predict", systemImage: "magnifyingglass")
         }
     }
 }
@@ -175,12 +190,7 @@ struct UserRequestView: View {
 
 struct UserRequestView_Previews: PreviewProvider {
     static var previews: some View {
-        TabView {
-            UserRequestView()
-                .tabItem { Label("Predict", systemImage: "magnifyingglass") }
-            UserRequestView()
-                .tabItem { Label("Predict", systemImage: "magnifyingglass") }
-        }
-        .environmentObject(FavoritePrefectureViewModel())
+        UserRequestView()
+            .environmentObject(FavoritePrefectureViewModel())
     }
 }

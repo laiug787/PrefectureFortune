@@ -26,7 +26,7 @@ extension Prefecture {
         let capital: String = "Tokyo"
         let citizenDay: MonthDay? = MonthDay(month: 10, day: 1)
         let hasCoastLine: Bool  = true
-        let logoUrl: String = "https://japan-map.com/wp-content/uploads/nihonchizu-dot-color-500x500.png"
+        let logoUrl: String = "https://japan-map.com/wp-content/uploads/nihonchizu-dot-500x500.png"
         let brief: String = "Japan is a country located in East Asia. It is an archipelago consisting of four main islands: Honshu, Hokkaido, Kyushu, and Shikoku. Japan is known for its rich culture, advanced technology, and strong economy. The capital city of Japan is Tokyo. *from: ChatGPT"
         
         return Prefecture(name: name, capital: capital, citizenDay: citizenDay, hasCoastLine: hasCoastLine, logoUrl: logoUrl, brief: brief)

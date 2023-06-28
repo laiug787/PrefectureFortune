@@ -13,6 +13,25 @@ struct UserResponseView: View {
     
     var body: some View {
         List {
+            Section("Your Profile") {
+                Grid(horizontalSpacing: 12) {
+                    GridRow {
+                        icon(systemName: "person.fill", color: .blue)
+                        LabeledContent("Name", value: user.name)
+                    }
+                    Divider()
+                    GridRow {
+                        icon(systemName: "birthday.cake.fill", color: .orange)
+                        LabeledContent("Birthday", value: user.birthday.date.yearMonthDayString)
+                    }
+                    Divider()
+                    GridRow {
+                        icon(systemName: "drop.fill", color: .red)
+                        LabeledContent("Blood type", value: user.bloodType.rawValue.uppercased())
+                    }
+                }
+            }
+
             Section("Prefecture") {
                 HStack(spacing: 20) {
                     AsyncImage(url: URL(string: prefecture.logoUrl)) { image in
@@ -36,32 +55,18 @@ struct UserResponseView: View {
                 LabeledContent("Citizen Day", value: prefecture.citizenDay?.date.monthDayString ?? "nil")
                 LabeledContent("Has coast line", value: prefecture.hasCoastLine.description.capitalized)
                 Text(prefecture.brief)
-            }
-            
-            Section("Your Profile") {
-                Grid {
-                    GridRow {
-                        Image(systemName: "person")
-                            .foregroundColor(.blue)
-                        LabeledContent("Name", value: user.name)
-                    }
-                    Divider()
-                    GridRow {
-                        Image(systemName: "birthday.cake")
-                            .foregroundColor(.orange)
-                        LabeledContent("Birthday", value: user.birthday.date.yearMonthDayString)
-                    }
-                    Divider()
-                    GridRow {
-                        Image(systemName: "drop")
-                            .foregroundColor(.red)
-                        LabeledContent("Blood type", value: user.bloodType.rawValue.uppercased())
-                    }
-                }
-            }
+            }            
         }
         .navigationTitle("Your Results")
         .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private func icon(systemName: String, color: Color) -> some View {
+        Image(systemName: systemName)
+            .frame(width: 26, height: 26)
+            .background(in: RoundedRectangle(cornerRadius: 5, style: .continuous))
+            .backgroundStyle(color.gradient)
+            .foregroundStyle(.white.shadow(.drop(radius: 1)))
     }
 }
 
