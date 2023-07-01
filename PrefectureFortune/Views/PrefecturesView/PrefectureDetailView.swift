@@ -37,6 +37,7 @@ struct PrefectureDetailView: View {
                 Spacer()
                 VStack {
                     PrefectureListItem(prefecture)
+                    Divider()
                     if isExpanded {
                         Text(prefecture.brief)
                     } else {
@@ -50,7 +51,7 @@ struct PrefectureDetailView: View {
                 .frame(minWidth: 90, maxWidth: 350)
                 .padding(16)
                 .compositingGroup()
-                .shadow(radius: 4)
+                .shadow(radius: 8)
                 .onTapGesture {
                     withAnimation {
                         isExpanded.toggle()
@@ -70,46 +71,6 @@ struct PrefectureDetailView: View {
                     longitudinalMeters: 5000.0
                 )
             }
-        }
-    }
-}
-
-struct PrefectureListItem: View {
-    var prefecture: Prefecture
-    
-    init(_ prefecture: Prefecture) {
-        self.prefecture = prefecture
-    }
-    
-    var body: some View {
-        HStack(spacing: 32) {
-            AsyncImage(url: URL(string: prefecture.logoUrl)) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-            } placeholder: {
-                ProgressView()
-            }
-            .frame(width: 70, height: 70)
-            
-            VStack(alignment: .leading) {
-                Text(prefecture.name)
-                    .font(.title)
-                Text(prefecture.capital)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-            }
-            .frame(minWidth: 120, maxWidth: 200, alignment: .leading)
-            
-            VStack(spacing: 16) {
-                if let citizenDay = prefecture.citizenDay {
-                    Label(citizenDay.date.monthDayString, systemImage: "calendar")
-                }
-                if prefecture.hasCoastLine {
-                    Image(systemName: "water.waves")
-                }
-            }
-            .foregroundColor(.secondary)
         }
     }
 }

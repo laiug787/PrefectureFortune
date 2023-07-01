@@ -15,7 +15,8 @@ struct PrefectureListView: View {
         List {
             ForEach(prefectures) { prefecture in
                 NavigationLink(value: prefecture) {
-                    prefectureListItem(prefecture)
+//                    prefectureListItem(prefecture)
+                    PrefectureListItem(prefecture)
                 }
             }
         }

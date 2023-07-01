@@ -146,34 +146,13 @@ struct UserRequestView: View {
             .foregroundStyle(.white.shadow(.drop(radius: 1)))
     }
     
-    private func responseRow() -> some View {
-        HStack(spacing: 20) {
-            AsyncImage(url: URL(string: predictVM.prefecture.logoUrl)) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .shadow(radius: 5)
-                    .frame(width: 100, height: 100)
-            } placeholder: {
-                ProgressView()
-                    .frame(width: 100, height: 100)
-            }
-            VStack(alignment: .leading) {
-                Text(predictVM.prefecture.name)
-                    .font(.title)
-                Text(predictVM.prefecture.capital)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-            }
-            .redacted(reason: predictVM.prefecture == .preview ? .placeholder : [])
-        }
-    }
-    
     private func responseView() -> some View {
         NavigationLink {
             UserResponseView(user: predictVM.user, prefecture: predictVM.prefecture)
         } label: {
-            responseRow()
+            PrefectureListItem(predictVM.prefecture)
+                .redacted(reason: predictVM.prefecture == .preview ? .placeholder : [])
+                .frame(height: 100)
         }
         .contextMenu {
             addToFavoriteButton()

@@ -15,7 +15,7 @@ struct FavoritePrefectureNavigationStack: View {
             List {
                 ForEach(favoritePrefectureVM.prefectures) { prefecture in
                     NavigationLink(value: prefecture) {
-                        prefectureListItem(prefecture)
+                        PrefectureListItem(prefecture)
                     }
                 }
             }
