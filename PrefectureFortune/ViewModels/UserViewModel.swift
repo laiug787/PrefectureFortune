@@ -8,13 +8,13 @@
 import Foundation
 
 final class UserViewModel: ObservableObject {
-    @Published var prefectures: [Prefecture]
+    @Published var users: [User]
     
     init() {
-        self.prefectures = []
+        self.users = []
     }
     
-    func addToFavorite(prefecture: Prefecture) {
-        self.prefectures.append(prefecture)
+    func addToFavorite(user: User) {
+        self.users.append(user)
     }
 }

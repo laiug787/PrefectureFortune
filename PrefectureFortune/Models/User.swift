@@ -7,11 +7,15 @@
 
 import Foundation
 
-struct User: Codable {
+struct User: Identifiable, Codable {
     var name: String
     var birthday: YearMonthDay
     var bloodType: BloodType
     var today: YearMonthDay
+    
+    var id: String {
+        self.name
+    }
 }
 
 extension User {

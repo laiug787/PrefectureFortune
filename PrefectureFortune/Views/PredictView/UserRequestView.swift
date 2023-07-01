@@ -161,7 +161,7 @@ struct UserRequestView: View {
     
     private func addToFavoriteButton() -> some View {
         Button {
-            favoritePrefectureVM.addToFavorite(prefecture: predictVM.prefecture)
+            favoritePrefectureVM.addToFavorite(user: predictVM.user)
         } label: {
             Label("Add", systemImage: "star")
         }
