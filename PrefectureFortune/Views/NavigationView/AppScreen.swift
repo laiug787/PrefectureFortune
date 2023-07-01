@@ -9,7 +9,7 @@ import SwiftUI
 
 enum AppScreen: Codable, Hashable, Identifiable, CaseIterable {
     case prefectures
-    case favorites
+    case users
     case predict
     case settings
     
@@ -22,7 +22,7 @@ extension AppScreen {
         switch self {
         case .prefectures:
             Label("Prefectures", systemImage: "rectangle.stack")
-        case .favorites:
+        case .users:
             Label("Favorites", systemImage: "star.square.on.square")
         case .predict:
             Label("Predict", systemImage: "magnifyingglass")
@@ -36,8 +36,8 @@ extension AppScreen {
         switch self {
         case .prefectures:
             PrefectureNavigationStack()
-        case .favorites:
-            FavoritePrefectureNavigationStack()
+        case .users:
+            UserNavigationStack()
         case .predict:
             UserRequestView()
         case .settings:

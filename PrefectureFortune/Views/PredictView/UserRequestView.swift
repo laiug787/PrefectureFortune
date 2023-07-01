@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserRequestView: View {
-    @EnvironmentObject var favoritePrefectureVM: FavoritePrefectureViewModel
+    @EnvironmentObject var favoritePrefectureVM: UserViewModel
     @StateObject private var predictVM = PredictViewModel()
     @FocusState private var focusedField: FocusedField?
     @State private var isFocusedBefore: Bool = false
@@ -188,6 +188,6 @@ struct UserRequestView: View {
 struct UserRequestView_Previews: PreviewProvider {
     static var previews: some View {
         UserRequestView()
-            .environmentObject(FavoritePrefectureViewModel())
+            .environmentObject(UserViewModel())
     }
 }

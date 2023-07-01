@@ -13,7 +13,7 @@ struct PrefectureFortuneApp: App {
         WindowGroup {
             ContentView()
                 .modifier(AppearanceModifier())
-                .environmentObject(FavoritePrefectureViewModel())
+                .environmentObject(UserViewModel())
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  FavoritePrefectureNavigationStack.swift
+//  UserNavigationStack.swift
 //  PrefectureFortune
 //
 //  Created by Yusho Segawa on 2023/06/27
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct FavoritePrefectureNavigationStack: View {
-    @EnvironmentObject var favoritePrefectureVM: FavoritePrefectureViewModel
+struct UserNavigationStack: View {
+    @EnvironmentObject var userVM: UserViewModel
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(favoritePrefectureVM.prefectures) { prefecture in
+                ForEach(userVM.prefectures) { prefecture in
                     NavigationLink(value: prefecture) {
                         PrefectureListItem(prefecture)
                     }
@@ -47,9 +47,9 @@ struct FavoritePrefectureNavigationStack: View {
     }
 }
 
-struct FavoritePrefectureNavigationStack_Previews: PreviewProvider {
+struct UserNavigationStack_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritePrefectureNavigationStack()
-            .environmentObject(FavoritePrefectureViewModel())
+        UserNavigationStack()
+            .environmentObject(UserViewModel())
     }
 }

@@ -1,5 +1,5 @@
 //
-//  FavoritePrefectureViewModel.swift
+//  UserViewModel.swift
 //  PrefectureFortune
 //
 //  Created by Yusho Segawa on 2023/06/28
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class FavoritePrefectureViewModel: ObservableObject {
+final class UserViewModel: ObservableObject {
     @Published var prefectures: [Prefecture]
     
     init() {
