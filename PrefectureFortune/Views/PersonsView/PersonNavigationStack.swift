@@ -26,21 +26,30 @@ struct PersonNavigationStack: View {
                 }
                 .pickerStyle(.segmented)
                 .padding()
-                
-                List {
-                    switch viewStyle {
-                    case .users:
-                        ForEach(userVM.persons) { person in
-                            personListItem(person)
-                                .padding(.horizontal)
-                        }
-                    case .prefectures:
-                        ForEach(userVM.prefectures) { prefecture in
-                            Text(prefecture.name)
+                if !userVM.persons.isEmpty {
+                    Spacer()
+                    ContentUnavailableView(
+                        text: "No Person",
+                        systemImage: "person.crop.rectangle",
+                        description: "Please add a person"
+                    )
+                    Spacer()
+                } else {
+                    List {
+                        switch viewStyle {
+                        case .users:
+                            ForEach(userVM.persons) { person in
+                                personListItem(person)
+                                    .padding(.horizontal)
+                            }
+                        case .prefectures:
+                            ForEach(userVM.prefectures) { prefecture in
+                                Text(prefecture.name)
+                            }
                         }
                     }
+                    .listStyle(.plain)
                 }
-                .listStyle(.plain)
             }
             .navigationTitle("Collections")
         }

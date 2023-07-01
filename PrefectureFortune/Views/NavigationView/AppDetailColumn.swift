@@ -15,19 +15,11 @@ struct AppDetailColumn: View {
             if let screen = screen {
                 screen.destination
             } else {
-                VStack {
-                    Image(systemName: "rectangle.stack")
-                        .font(.system(size: 100))
-                        .foregroundColor(.secondary)
-                        .padding(4)
-                    Text("Select a Tab")
-                        .fontWeight(.bold)
-                        .font(.largeTitle)
-                        .foregroundColor(.primary)
-                    Text("Pick something from the list.")
-                        .font(.title)
-                        .foregroundColor(.secondary)
-                }
+                ContentUnavailableView(
+                    text: "Select a Tab",
+                    systemImage: "rectangle.stack",
+                    description: "Pick something from the list."
+                )
             }
         }
     }
