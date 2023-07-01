@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6F07D3552A5064490087FC99 /* PredictEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07D34D2A5064420087FC99 /* PredictEntity+CoreDataClass.swift */; };
 		6F07D3572A5064490087FC99 /* PredictEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07D34E2A5064420087FC99 /* PredictEntity+CoreDataProperties.swift */; };
+		6F07D35A2A506B950087FC99 /* CoreDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07D3592A506B950087FC99 /* CoreDataExtension.swift */; };
 		6F474CE82A48A1210019483F /* PrefectureFortuneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F474CE72A48A1210019483F /* PrefectureFortuneApp.swift */; };
 		6F474CEA2A48A1210019483F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F474CE92A48A1210019483F /* ContentView.swift */; };
 		6F474CEC2A48A1220019483F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F474CEB2A48A1220019483F /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		6F07D34D2A5064420087FC99 /* PredictEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PredictEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6F07D34E2A5064420087FC99 /* PredictEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PredictEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6F07D3592A506B950087FC99 /* CoreDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExtension.swift; sourceTree = "<group>"; };
 		6F474CE42A48A1210019483F /* PrefectureFortune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrefectureFortune.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F474CE72A48A1210019483F /* PrefectureFortuneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureFortuneApp.swift; sourceTree = "<group>"; };
 		6F474CE92A48A1210019483F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				6F816CFD2A5027BE00EA297E /* PrefectureEntity+CoreDataClass.swift */,
 				6F816CFE2A5027BE00EA297E /* PrefectureEntity+CoreDataProperties.swift */,
 				6F816D062A50297E00EA297E /* CoreDataManager.swift */,
+				6F07D3592A506B950087FC99 /* CoreDataExtension.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				6F07D3572A5064490087FC99 /* PredictEntity+CoreDataProperties.swift in Sources */,
 				6F474CFC2A4956C80019483F /* PrefectureFetcher.swift in Sources */,
 				6F7DB7752A4A0B7900431383 /* AppTabView.swift in Sources */,
+				6F07D35A2A506B950087FC99 /* CoreDataExtension.swift in Sources */,
 				6F07D3552A5064490087FC99 /* PredictEntity+CoreDataClass.swift in Sources */,
 				6F816CF92A500A1600EA297E /* UserListItem.swift in Sources */,
 				6F7DB7962A4C858E00431383 /* SettingViewModel.swift in Sources */,
