@@ -12,8 +12,22 @@ extension PersonEntity {
         let manager = CoreDataManager.instance
         let person = PersonEntity(context: manager.context)
         person.id = UUID().uuidString
-        person.creationDate = Date()
-        person.name = "Name"
+        person.name = "Person name"
+        person.bloodType = "ab"
+        person.birthday = Date.now
+        person.creationDate = Date.now
+        return person
+    }
+}
+
+extension PredictEntity {
+    public static var preview: PredictEntity {
+        let manager = CoreDataManager.instance
+        let person = PredictEntity(context: manager.context)
+        person.id = UUID().uuidString
+        person.predictDate = Date.now
+        person.person = PersonEntity.preview
+        person.prefecture = PrefectureEntity.preview
         return person
     }
 }
@@ -22,9 +36,9 @@ extension PrefectureEntity {
     public static var preview: PrefectureEntity {
         let manager = CoreDataManager.instance
         let prefecture = PrefectureEntity(context: manager.context)
-        prefecture.id = "東京都"
-        prefecture.creationDate = Date()
-        prefecture.name = "東京都"
+        prefecture.id = UUID().uuidString
+        prefecture.name = "Japan"
+        prefecture.creationDate = Date.now
         return prefecture
     }
 }
