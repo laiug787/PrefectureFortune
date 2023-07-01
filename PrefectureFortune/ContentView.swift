@@ -11,14 +11,10 @@ struct ContentView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     
-    @State private var selection: AppScreen? = .settings
+    @State private var selection: AppScreen? = .predict
     
     var prefersTabNavigation: Bool {
-        if horizontalSizeClass == .compact {
-            return true
-        } else {
-            return false
-        }
+        return horizontalSizeClass == .compact
     }
     
     var body: some View {
@@ -37,6 +33,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(PersonViewModel())
+            .environmentObject(PersonViewModel.preview)
     }
 }
