@@ -31,6 +31,12 @@
 		6F7DB7942A4C30F800431383 /* EditAccountForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DB7932A4C30F800431383 /* EditAccountForm.swift */; };
 		6F7DB7962A4C858E00431383 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DB7952A4C858E00431383 /* SettingViewModel.swift */; };
 		6F816CF92A500A1600EA297E /* UserListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F816CF82A500A1600EA297E /* UserListItem.swift */; };
+		6F816CFC2A500DFC00EA297E /* PrefectureFortune.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6F816CFA2A500DFC00EA297E /* PrefectureFortune.xcdatamodeld */; };
+		6F816D012A5027BE00EA297E /* PrefectureEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F816CFD2A5027BE00EA297E /* PrefectureEntity+CoreDataClass.swift */; };
+		6F816D022A5027BE00EA297E /* PrefectureEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F816CFE2A5027BE00EA297E /* PrefectureEntity+CoreDataProperties.swift */; };
+		6F816D032A5027BE00EA297E /* PersonEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F816CFF2A5027BE00EA297E /* PersonEntity+CoreDataClass.swift */; };
+		6F816D042A5027BE00EA297E /* PersonEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F816D002A5027BE00EA297E /* PersonEntity+CoreDataProperties.swift */; };
+		6F816D072A50297E00EA297E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F816D062A50297E00EA297E /* CoreDataManager.swift */; };
 		6FA087ED2A4FFD98008E4617 /* PrefectureListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA087EC2A4FFD98008E4617 /* PrefectureListItem.swift */; };
 		6FE633952A4CB90B0024AFD6 /* AppScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE633942A4CB90B0024AFD6 /* AppScreen.swift */; };
 		6FE633972A4CB9DB0024AFD6 /* AppSidebarList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE633962A4CB9DB0024AFD6 /* AppSidebarList.swift */; };
@@ -64,6 +70,12 @@
 		6F7DB7932A4C30F800431383 /* EditAccountForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountForm.swift; sourceTree = "<group>"; };
 		6F7DB7952A4C858E00431383 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		6F816CF82A500A1600EA297E /* UserListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListItem.swift; sourceTree = "<group>"; };
+		6F816CFB2A500DFC00EA297E /* PrefectureFortune.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrefectureFortune.xcdatamodel; sourceTree = "<group>"; };
+		6F816CFD2A5027BE00EA297E /* PrefectureEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrefectureEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6F816CFE2A5027BE00EA297E /* PrefectureEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrefectureEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6F816CFF2A5027BE00EA297E /* PersonEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6F816D002A5027BE00EA297E /* PersonEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6F816D062A50297E00EA297E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		6FA087EC2A4FFD98008E4617 /* PrefectureListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureListItem.swift; sourceTree = "<group>"; };
 		6FE633942A4CB90B0024AFD6 /* AppScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreen.swift; sourceTree = "<group>"; };
 		6FE633962A4CB9DB0024AFD6 /* AppSidebarList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSidebarList.swift; sourceTree = "<group>"; };
@@ -103,6 +115,7 @@
 			children = (
 				6F474CE72A48A1210019483F /* PrefectureFortuneApp.swift */,
 				6F474CE92A48A1210019483F /* ContentView.swift */,
+				6F816D052A5027C700EA297E /* CoreData */,
 				6F474CFF2A49AD5F0019483F /* Models */,
 				6F474CFE2A49AD580019483F /* Views */,
 				6F474CFD2A49AD4F0019483F /* ViewModels */,
@@ -213,6 +226,19 @@
 			path = PredictView;
 			sourceTree = "<group>";
 		};
+		6F816D052A5027C700EA297E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				6F816CFA2A500DFC00EA297E /* PrefectureFortune.xcdatamodeld */,
+				6F816CFD2A5027BE00EA297E /* PrefectureEntity+CoreDataClass.swift */,
+				6F816CFE2A5027BE00EA297E /* PrefectureEntity+CoreDataProperties.swift */,
+				6F816CFF2A5027BE00EA297E /* PersonEntity+CoreDataClass.swift */,
+				6F816D002A5027BE00EA297E /* PersonEntity+CoreDataProperties.swift */,
+				6F816D062A50297E00EA297E /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -285,12 +311,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F7DB77B2A4A0DD900431383 /* SettingNavigationStack.swift in Sources */,
+				6F816D032A5027BE00EA297E /* PersonEntity+CoreDataClass.swift in Sources */,
 				6F7DB78A2A4B057000431383 /* PrefectureListView.swift in Sources */,
 				6F474D032A49AE800019483F /* Prefecture.swift in Sources */,
 				6F474CEA2A48A1210019483F /* ContentView.swift in Sources */,
+				6F816CFC2A500DFC00EA297E /* PrefectureFortune.xcdatamodeld in Sources */,
 				6FE633972A4CB9DB0024AFD6 /* AppSidebarList.swift in Sources */,
 				6F7DB7862A4AC60A00431383 /* PrefectureDetailView.swift in Sources */,
 				6F474CE82A48A1210019483F /* PrefectureFortuneApp.swift in Sources */,
+				6F816D042A5027BE00EA297E /* PersonEntity+CoreDataProperties.swift in Sources */,
+				6F816D012A5027BE00EA297E /* PrefectureEntity+CoreDataClass.swift in Sources */,
+				6F816D072A50297E00EA297E /* CoreDataManager.swift in Sources */,
+				6F816D022A5027BE00EA297E /* PrefectureEntity+CoreDataProperties.swift in Sources */,
 				6F7DB7882A4B056200431383 /* PrefectureGridView.swift in Sources */,
 				6F474D012A49AE2B0019483F /* User.swift in Sources */,
 				6FE633952A4CB90B0024AFD6 /* AppScreen.swift in Sources */,
@@ -509,6 +541,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6F816CFA2A500DFC00EA297E /* PrefectureFortune.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6F816CFB2A500DFC00EA297E /* PrefectureFortune.xcdatamodel */,
+			);
+			currentVersion = 6F816CFB2A500DFC00EA297E /* PrefectureFortune.xcdatamodel */;
+			path = PrefectureFortune.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6F474CDC2A48A1210019483F /* Project object */;
 }
