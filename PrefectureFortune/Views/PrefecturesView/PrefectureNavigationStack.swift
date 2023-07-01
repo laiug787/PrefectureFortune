@@ -40,23 +40,9 @@ struct PrefectureNavigationStack: View {
 //            .searchable(text: $prefectureVM.searchText)
             .toolbar {
                 ToolbarItem {
-                    Menu {  
-                        switch prefectureVM.viewStyle {
-                        case .gridView:
-                            Button {
-                                prefectureVM.viewStyle = .ListView
-                            } label: {
-                                Label("View as List", systemImage: "list.bullet")
-                            }
-                        case .ListView:
-                            Button {
-                                prefectureVM.viewStyle = .gridView
-                            } label: {
-                                Label("View as Gallery", systemImage: "square.grid.2x2")
-                            }
-                        }
-                    } label: {
-                        Label("Details", systemImage: "ellipsis.circle")
+                    Picker("ViewStyle", selection: $prefectureVM.viewStyle) {
+                        Label("Grid", systemImage: "square.grid.2x2").tag(ViewStyle.gridView)
+                        Label("List", systemImage: "list.bullet").tag(ViewStyle.ListView)
                     }
                 }
             }
