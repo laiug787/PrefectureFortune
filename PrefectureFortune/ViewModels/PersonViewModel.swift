@@ -22,8 +22,8 @@ final class PersonViewModel: ObservableObject {
     }
     
     private init(_ viewStatus: ViewStatus) {
-        self.persons = [.preview, .preview]
-        self.prefectures = [.preview, .preview]
+        self.persons = [.preview]
+        self.prefectures = [.preview]
     }
     
     private func getPersons() {
