@@ -8,9 +8,9 @@
 import SwiftUI
 
 enum AppScreen: Codable, Hashable, Identifiable, CaseIterable {
-    case prefectures
-    case persons
     case predict
+    case persons
+    case prefectures
     case settings
     
     var id: AppScreen { self }
@@ -20,12 +20,12 @@ extension AppScreen {
     @ViewBuilder
     var label: some View {
         switch self {
-        case .prefectures:
-            Label("Prefectures", systemImage: "rectangle.stack")
-        case .persons:
-            Label("Favorites", systemImage: "star.square.on.square")
         case .predict:
-            Label("Predict", systemImage: "magnifyingglass")
+            Label("Predict", systemImage: "hands.clap.fill")
+        case .persons:
+            Label("Collections", systemImage: "person.crop.rectangle.stack")
+        case .prefectures:
+            Label("Search", systemImage: "magnifyingglass")
         case .settings:
             Label("Settings", systemImage: "gear")
         }
@@ -34,12 +34,12 @@ extension AppScreen {
     @ViewBuilder
     var destination: some View {
         switch self {
-        case .prefectures:
-            PrefectureNavigationStack()
-        case .persons:
-            PersonNavigationStack()
         case .predict:
             UserRequestView()
+        case .persons:
+            PersonNavigationStack()
+        case .prefectures:
+            PrefectureNavigationStack()
         case .settings:
             SettingNavigationStack()
         }
