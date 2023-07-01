@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct UserListItem: View {
-    var user: User
+struct PersonListItem: View {
+    var person: Person
     
-    init(_ user: User) {
-        self.user = user
+    init(_ person: Person) {
+        self.person = person
     }
     
     var body: some View {
         VStack {
             LabeledContent {
-                Text(user.name)
+                Text(person.name)
             } label: {
                 Label {
                     Text("Name")
@@ -29,7 +29,7 @@ struct UserListItem: View {
             Divider()
             
             LabeledContent {
-                Text(user.birthday.date.yearMonthDayString)
+                Text(person.birthday.date.yearMonthDayString)
             } label: {
                 Label {
                     Text("Birthday")
@@ -41,7 +41,7 @@ struct UserListItem: View {
             Divider()
             
             LabeledContent {
-                Text(user.bloodType.rawValue.uppercased())
+                Text(person.bloodType.rawValue.uppercased())
             } label: {
                 Label {
                     Text("Blood Type")
@@ -63,7 +63,7 @@ struct UserListItem: View {
 
 struct UserListItem_Previews: PreviewProvider {
     static var previews: some View {
-        UserListItem(User.preview)
+        PersonListItem(Person.preview)
             .padding()
     }
 }

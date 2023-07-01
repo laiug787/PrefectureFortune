@@ -1,5 +1,5 @@
 //
-//  UserViewModel.swift
+//  PersonViewModel.swift
 //  PrefectureFortune
 //
 //  Created by Yusho Segawa on 2023/06/28
@@ -8,11 +8,11 @@
 import Foundation
 import CoreData
 
-final class UserViewModel: ObservableObject {
-    @Published var users: [PersonEntity] = []
+final class PersonViewModel: ObservableObject {
+    @Published var persons: [PersonEntity] = []
     @Published var prefectures: [PrefectureEntity] = []
     
-    static let preview: UserViewModel = UserViewModel(.preview)
+    static let preview: PersonViewModel = PersonViewModel(.preview)
     
     let manager = CoreDataManager.instance
     
@@ -22,16 +22,16 @@ final class UserViewModel: ObservableObject {
     }
     
     private init(_ viewStatus: ViewStatus) {
-        self.users = [.preview, .preview]
+        self.persons = [.preview, .preview]
         self.prefectures = [.preview, .preview]
     }
     
     private func getPersons() {
         let request = NSFetchRequest<PersonEntity>(entityName: "PersonEntity")
-        users.removeAll()
+        persons.removeAll()
         
         do {
-            users = try manager.context.fetch(request)
+            persons = try manager.context.fetch(request)
         } catch let error {
             print("Error fetching! \(error.localizedDescription)")
         }
@@ -48,7 +48,7 @@ final class UserViewModel: ObservableObject {
         }
     }
     
-    func addToFavorite(_ user: User, _ prefecture: Prefecture) {
+    func addToFavorite(_ user: Person, _ prefecture: Prefecture) {
         addPredict(user, prefecture)
         manager.save()
         getPersons()
@@ -57,8 +57,8 @@ final class UserViewModel: ObservableObject {
 }
 
 // Person
-extension UserViewModel{
-    func addPerson(_ user: User) -> PersonEntity {
+extension PersonViewModel{
+    func addPerson(_ user: Person) -> PersonEntity {
         let newPerson = PersonEntity(context: manager.context)
         newPerson.id = UUID().uuidString
         newPerson.name = user.name
@@ -77,8 +77,8 @@ extension UserViewModel{
 }
 
 // Predict
-extension UserViewModel{
-    private func addPredict(_ user: User, _ prefecture: Prefecture) {
+extension PersonViewModel{
+    private func addPredict(_ user: Person, _ prefecture: Prefecture) {
         let newPredict = PredictEntity(context: manager.context)
         newPredict.id = UUID().uuidString
         newPredict.predictDate = user.today.date
@@ -88,7 +88,7 @@ extension UserViewModel{
 }
 
 // Prefecture
-extension UserViewModel{
+extension PersonViewModel{
     private func addPrefecture(_ prefecture: Prefecture) -> PrefectureEntity {
         if let exsistPrefecture = prefectures.first(where: { $0.id == prefecture.id }) {
             return exsistPrefecture

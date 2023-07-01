@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EditAccountForm: View {
     @Environment(\.dismiss) private var dismiss
-    @Binding var account: User
+    @Binding var account: Person
     
     var body: some View {
         NavigationStack {

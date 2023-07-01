@@ -13,7 +13,7 @@ final class PrefectureFetcher {
     private let httpMethod = "POST"
     private let httpRequestHeaders = ["API-Version": "v1"]
         
-    func fetchPrefectureData(user: User) async throws -> Prefecture {
+    func fetchPrefectureData(user: Person) async throws -> Prefecture {
         guard let url = URL(string: baseURL + endPoint) else {
             throw APIError.invalidURL
         }
@@ -32,7 +32,7 @@ final class PrefectureFetcher {
         }
     }
     
-    private func encodeUser(user: User) throws -> Data {
+    private func encodeUser(user: Person) throws -> Data {
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted // Specify format
         encoder.keyEncodingStrategy = .convertToSnakeCase // CamelCase to SnakeCase

@@ -8,14 +8,14 @@
 import SwiftUI
 
 final class PredictViewModel: ObservableObject {
-    @Published var user: User
+    @Published var person: Person
     @Published var prefecture: Prefecture
     @Published var showingAlert: Bool
     
     private var prefectureFetcher: PrefectureFetcher
     
     init() {
-        self.user = User.preview
+        self.person = Person.preview
         self.prefecture = Prefecture.preview
         self.showingAlert = false
         self.prefectureFetcher = PrefectureFetcher()
@@ -27,13 +27,13 @@ final class PredictViewModel: ObservableObject {
     
     @MainActor
     func predict() {
-        guard !user.name.isEmpty else {
+        guard !person.name.isEmpty else {
             showingAlert.toggle()
             return
         }
         Task {
             do {
-                let prefecture = try await prefectureFetcher.fetchPrefectureData(user: user)
+                let prefecture = try await prefectureFetcher.fetchPrefectureData(user: person)
                 self.prefecture = prefecture
             } catch APIError.invalidURL {
                 print("invalid URL")

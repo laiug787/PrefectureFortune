@@ -1,5 +1,5 @@
 //
-//  UserNavigationStack.swift
+//  PersonNavigationStack.swift
 //  PrefectureFortune
 //
 //  Created by Yusho Segawa on 2023/06/27
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct UserNavigationStack: View {
-    @EnvironmentObject var userVM: UserViewModel
+struct PersonNavigationStack: View {
+    @EnvironmentObject var userVM: PersonViewModel
     
     @State private var viewStyle: FavoriteViewStyle = .users
     
@@ -30,7 +30,7 @@ struct UserNavigationStack: View {
                 List {
                     switch viewStyle {
                     case .users:
-                        ForEach(userVM.users) { user in
+                        ForEach(userVM.persons) { user in
                             Text(user.name)
                         }
                     case .prefectures:
@@ -47,7 +47,7 @@ struct UserNavigationStack: View {
 
 struct UserNavigationStack_Previews: PreviewProvider {
     static var previews: some View {
-        UserNavigationStack()
-            .environmentObject(UserViewModel.preview)
+        PersonNavigationStack()
+            .environmentObject(PersonViewModel.preview)
     }
 }

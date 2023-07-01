@@ -10,13 +10,13 @@ import SwiftUI
 struct SettingNavigationStack: View {
     @StateObject private var settingVM = SettingViewModel()
     @State private var presentingEditAccountSheet: Bool = false
-    @State private var account: User = .preview
+    @State private var account: Person = .preview
     
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    UserListItem(account)
+                    PersonListItem(account)
                 } header: {
                     HStack {
                         Text("My Information")

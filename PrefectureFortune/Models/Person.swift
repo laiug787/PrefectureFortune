@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  Person.swift
 //  PrefectureFortune
 //
 //  Created by Yusho Segawa on 2023/06/26
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Identifiable, Codable {
+struct Person: Identifiable, Codable {
     var name: String
     var birthday: YearMonthDay
     var bloodType: BloodType
@@ -18,14 +18,14 @@ struct User: Identifiable, Codable {
     }
 }
 
-extension User {
-    static var preview: User {
+extension Person {
+    static var preview: Person {
         let name: String = "Yamada Taro"
         let birthday: YearMonthDay = YearMonthDay(year: 2000, month: 1, day: 1)
         let bloodType: BloodType = BloodType.ab
         let today: YearMonthDay = YearMonthDay(date: Date.now)
         
-        return User(name: name, birthday: birthday, bloodType: bloodType, today: today)
+        return Person(name: name, birthday: birthday, bloodType: bloodType, today: today)
     }
 }
 

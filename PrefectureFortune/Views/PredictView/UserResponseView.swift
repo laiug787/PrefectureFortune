@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserResponseView: View {
-    var user: User
+    var user: Person
     var prefecture: Prefecture
     
     var body: some View {
@@ -42,7 +42,7 @@ struct UserResponseView: View {
             }
             
             Section("Recommended for") {
-                UserListItem(user)
+                PersonListItem(user)
             }
         }
         .navigationTitle("Your Results")

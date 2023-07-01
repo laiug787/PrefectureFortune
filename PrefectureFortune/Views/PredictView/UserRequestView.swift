@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserRequestView: View {
-    @EnvironmentObject var favoritePrefectureVM: UserViewModel
+    @EnvironmentObject var favoritePrefectureVM: PersonViewModel
     @StateObject private var predictVM = PredictViewModel()
     @FocusState private var focusedField: FocusedField?
     @State private var isFocusedBefore: Bool = false
@@ -86,9 +86,9 @@ struct UserRequestView: View {
         Group {
             Label {
                 HStack {
-                    TextField("Name", text: $predictVM.user.name)
+                    TextField("Name", text: $predictVM.person.name)
                         .focused($focusedField, equals: .name)
-                        .onChange(of: predictVM.user.name) { _ in
+                        .onChange(of: predictVM.person.name) { _ in
                             predictVM.resetPrefecture()
                         }
                         .onReceive(NotificationCenter.default.publisher(for: UITextField.textDidBeginEditingNotification)){ obj in
@@ -105,15 +105,15 @@ struct UserRequestView: View {
                         .foregroundColor(.primary)
                         .onTapGesture {
                             focusedField = .name
-                            predictVM.user.name = ""
+                            predictVM.person.name = ""
                         }
                 }
             } icon: {
                 icon(systemName: "person.fill", color: .blue)
             }
             Label {
-                DatePicker("Birthday", selection: $predictVM.user.birthday.date, displayedComponents: .date)
-                    .onChange(of: predictVM.user.birthday.date) { _ in
+                DatePicker("Birthday", selection: $predictVM.person.birthday.date, displayedComponents: .date)
+                    .onChange(of: predictVM.person.birthday.date) { _ in
                         predictVM.resetPrefecture()
                     }
             } icon: {
@@ -122,13 +122,13 @@ struct UserRequestView: View {
             Label {
                 Text("Blood Type")
                 Spacer()
-                Picker("Blood type", selection: $predictVM.user.bloodType) {
+                Picker("Blood type", selection: $predictVM.person.bloodType) {
                     ForEach(BloodType.allCases) { type in
                         Text(type.rawValue.uppercased()).tag(type.id)
                     }
                 }
                 .pickerStyle(.segmented)
-                .onChange(of: predictVM.user.bloodType) { _ in
+                .onChange(of: predictVM.person.bloodType) { _ in
                     predictVM.resetPrefecture()
                 }
                 .frame(maxWidth: 410)
@@ -148,7 +148,7 @@ struct UserRequestView: View {
     
     private func responseView() -> some View {
         NavigationLink {
-            UserResponseView(user: predictVM.user, prefecture: predictVM.prefecture)
+            UserResponseView(user: predictVM.person, prefecture: predictVM.prefecture)
         } label: {
             PrefectureListItem(predictVM.prefecture)
                 .redacted(reason: predictVM.prefecture == .preview ? .placeholder : [])
@@ -161,7 +161,7 @@ struct UserRequestView: View {
     
     private func addToFavoriteButton() -> some View {
         Button {            
-            favoritePrefectureVM.addToFavorite(predictVM.user, predictVM.prefecture)
+            favoritePrefectureVM.addToFavorite(predictVM.person, predictVM.prefecture)
         } label: {
             Label("Add", systemImage: "star")
         }
@@ -188,6 +188,6 @@ struct UserRequestView: View {
 struct UserRequestView_Previews: PreviewProvider {
     static var previews: some View {
         UserRequestView()
-            .environmentObject(UserViewModel())
+            .environmentObject(PersonViewModel())
     }
 }
