@@ -8,6 +8,10 @@
 import Foundation
 
 extension PersonEntity {
+    public var predicts: [PredictEntity] {
+        get { (predict as? Set<PredictEntity> ?? []).sorted { $0.id < $1.id } }
+    }
+    
     public static var preview: PersonEntity {
         let manager = CoreDataManager.instance
         let person = PersonEntity(context: manager.context)
@@ -33,6 +37,10 @@ extension PredictEntity {
 }
 
 extension PrefectureEntity {
+    public var predicts: [PredictEntity] {
+        get { (predict as? Set<PredictEntity> ?? []).sorted { $0.id < $1.id } }
+    }
+    
     public static var preview: PrefectureEntity {
         let manager = CoreDataManager.instance
         let prefecture = PrefectureEntity(context: manager.context)
