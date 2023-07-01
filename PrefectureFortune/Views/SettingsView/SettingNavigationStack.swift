@@ -16,33 +16,7 @@ struct SettingNavigationStack: View {
         NavigationStack {
             Form {
                 Section {
-                    LabeledContent {
-                        Text(account.name)
-                    } label: {
-                        Label {
-                            Text("Name")
-                        } icon: {
-                            icon(systemName: "person.fill", color: .blue)
-                        }
-                    }
-                    LabeledContent {
-                        Text(account.birthday.date.yearMonthDayString)
-                    } label: {
-                        Label {
-                            Text("Birthday")
-                        } icon: {
-                            icon(systemName: "birthday.cake.fill", color: .orange)
-                        }
-                    }
-                    LabeledContent {
-                        Text(account.bloodType.rawValue.uppercased())
-                    } label: {
-                        Label {
-                            Text("Blood Type")
-                        } icon: {
-                            icon(systemName: "drop.fill", color: .red)
-                        }
-                    }
+                    UserListItem(account)
                 } header: {
                     HStack {
                         Text("My Information")

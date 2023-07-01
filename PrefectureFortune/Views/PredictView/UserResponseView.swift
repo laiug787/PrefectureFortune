@@ -42,34 +42,11 @@ struct UserResponseView: View {
             }
             
             Section("Recommended for") {
-                Grid(horizontalSpacing: 12) {
-                    GridRow {
-                        icon(systemName: "person.fill", color: .blue)
-                        LabeledContent("Name", value: user.name)
-                    }
-                    Divider()
-                    GridRow {
-                        icon(systemName: "birthday.cake.fill", color: .orange)
-                        LabeledContent("Birthday", value: user.birthday.date.yearMonthDayString)
-                    }
-                    Divider()
-                    GridRow {
-                        icon(systemName: "drop.fill", color: .red)
-                        LabeledContent("Blood type", value: user.bloodType.rawValue.uppercased())
-                    }
-                }
+                UserListItem(user)
             }
         }
         .navigationTitle("Your Results")
         .navigationBarTitleDisplayMode(.inline)
-    }
-    
-    private func icon(systemName: String, color: Color) -> some View {
-        Image(systemName: systemName)
-            .frame(width: 26, height: 26)
-            .background(in: RoundedRectangle(cornerRadius: 5, style: .continuous))
-            .backgroundStyle(color.gradient)
-            .foregroundStyle(.white.shadow(.drop(radius: 1)))
     }
 }
 
