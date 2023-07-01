@@ -19,24 +19,24 @@ extension PrefectureEntity {
     @NSManaged public var id: String
     @NSManaged public var name: String
     @NSManaged public var creationDate: Date
-    @NSManaged public var persons: NSSet?
+    @NSManaged public var predict: NSSet?
 
 }
 
-// MARK: Generated accessors for persons
+// MARK: Generated accessors for predict
 extension PrefectureEntity {
 
-    @objc(addPersonsObject:)
-    @NSManaged public func addToPersons(_ value: PersonEntity)
+    @objc(addPredictObject:)
+    @NSManaged public func addToPredict(_ value: PredictEntity)
 
-    @objc(removePersonsObject:)
-    @NSManaged public func removeFromPersons(_ value: PersonEntity)
+    @objc(removePredictObject:)
+    @NSManaged public func removeFromPredict(_ value: PredictEntity)
 
-    @objc(addPersons:)
-    @NSManaged public func addToPersons(_ values: NSSet)
+    @objc(addPredict:)
+    @NSManaged public func addToPredict(_ values: NSSet)
 
-    @objc(removePersons:)
-    @NSManaged public func removeFromPersons(_ values: NSSet)
+    @objc(removePredict:)
+    @NSManaged public func removeFromPredict(_ values: NSSet)
 
 }
 

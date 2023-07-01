@@ -6,12 +6,18 @@
         <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="prefecture" maxCount="1" deletionRule="Nullify" destinationEntity="PrefectureEntity" inverseName="persons" inverseEntity="PrefectureEntity"/>
+        <relationship name="predict" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PredictEntity" inverseName="person" inverseEntity="PredictEntity"/>
+    </entity>
+    <entity name="PredictEntity" representedClassName="PredictEntity" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="predictDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="person" maxCount="1" deletionRule="Nullify" destinationEntity="PersonEntity" inverseName="predict" inverseEntity="PersonEntity"/>
+        <relationship name="prefecture" maxCount="1" deletionRule="Nullify" destinationEntity="PrefectureEntity" inverseName="predict" inverseEntity="PrefectureEntity"/>
     </entity>
     <entity name="PrefectureEntity" representedClassName="PrefectureEntity" syncable="YES">
         <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="persons" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PersonEntity" inverseName="prefecture" inverseEntity="PersonEntity"/>
+        <relationship name="predict" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PredictEntity" inverseName="prefecture" inverseEntity="PredictEntity"/>
     </entity>
 </model>

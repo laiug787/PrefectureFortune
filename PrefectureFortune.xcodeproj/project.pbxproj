@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F07D3552A5064490087FC99 /* PredictEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07D34D2A5064420087FC99 /* PredictEntity+CoreDataClass.swift */; };
+		6F07D3572A5064490087FC99 /* PredictEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F07D34E2A5064420087FC99 /* PredictEntity+CoreDataProperties.swift */; };
 		6F474CE82A48A1210019483F /* PrefectureFortuneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F474CE72A48A1210019483F /* PrefectureFortuneApp.swift */; };
 		6F474CEA2A48A1210019483F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F474CE92A48A1210019483F /* ContentView.swift */; };
 		6F474CEC2A48A1220019483F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F474CEB2A48A1220019483F /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F07D34D2A5064420087FC99 /* PredictEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PredictEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6F07D34E2A5064420087FC99 /* PredictEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PredictEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6F474CE42A48A1210019483F /* PrefectureFortune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrefectureFortune.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F474CE72A48A1210019483F /* PrefectureFortuneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureFortuneApp.swift; sourceTree = "<group>"; };
 		6F474CE92A48A1210019483F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -230,10 +234,12 @@
 			isa = PBXGroup;
 			children = (
 				6F816CFA2A500DFC00EA297E /* PrefectureFortune.xcdatamodeld */,
-				6F816CFD2A5027BE00EA297E /* PrefectureEntity+CoreDataClass.swift */,
-				6F816CFE2A5027BE00EA297E /* PrefectureEntity+CoreDataProperties.swift */,
 				6F816CFF2A5027BE00EA297E /* PersonEntity+CoreDataClass.swift */,
 				6F816D002A5027BE00EA297E /* PersonEntity+CoreDataProperties.swift */,
+				6F07D34D2A5064420087FC99 /* PredictEntity+CoreDataClass.swift */,
+				6F07D34E2A5064420087FC99 /* PredictEntity+CoreDataProperties.swift */,
+				6F816CFD2A5027BE00EA297E /* PrefectureEntity+CoreDataClass.swift */,
+				6F816CFE2A5027BE00EA297E /* PrefectureEntity+CoreDataProperties.swift */,
 				6F816D062A50297E00EA297E /* CoreDataManager.swift */,
 			);
 			path = CoreData;
@@ -333,8 +339,10 @@
 				6F7DB7842A4A1BF400431383 /* PrefectureViewModel.swift in Sources */,
 				6F474CFA2A48B3DA0019483F /* UserResponseView.swift in Sources */,
 				6F7DB7772A4A0C0000431383 /* PrefectureNavigationStack.swift in Sources */,
+				6F07D3572A5064490087FC99 /* PredictEntity+CoreDataProperties.swift in Sources */,
 				6F474CFC2A4956C80019483F /* PrefectureFetcher.swift in Sources */,
 				6F7DB7752A4A0B7900431383 /* AppTabView.swift in Sources */,
+				6F07D3552A5064490087FC99 /* PredictEntity+CoreDataClass.swift in Sources */,
 				6F816CF92A500A1600EA297E /* UserListItem.swift in Sources */,
 				6F7DB7962A4C858E00431383 /* SettingViewModel.swift in Sources */,
 				6F7DB7902A4B650700431383 /* UserViewModel.swift in Sources */,

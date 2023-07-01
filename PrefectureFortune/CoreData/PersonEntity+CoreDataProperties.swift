@@ -17,11 +17,28 @@ extension PersonEntity {
     }
 
     @NSManaged public var id: String
-    @NSManaged public var creationDate: Date
     @NSManaged public var name: String
     @NSManaged public var bloodType: String
     @NSManaged public var birthday: Date
-    @NSManaged public var prefecture: PrefectureEntity
+    @NSManaged public var creationDate: Date
+    @NSManaged public var predict: NSSet?
+
+}
+
+// MARK: Generated accessors for predict
+extension PersonEntity {
+
+    @objc(addPredictObject:)
+    @NSManaged public func addToPredict(_ value: PredictEntity)
+
+    @objc(removePredictObject:)
+    @NSManaged public func removeFromPredict(_ value: PredictEntity)
+
+    @objc(addPredict:)
+    @NSManaged public func addToPredict(_ values: NSSet)
+
+    @objc(removePredict:)
+    @NSManaged public func removeFromPredict(_ values: NSSet)
 
 }
 
