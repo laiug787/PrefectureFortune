@@ -13,12 +13,26 @@ struct PersonDetailView: View {
     var body: some View {
         List {
             Section {
-                Text("Test")
+                PersonListItem(person.convertToPerson())
             }
             Section {
-                Text("Test")
+                ForEach(person.predicts) { predict in
+                    NavigationLink {
+                        PrefectureDetailView(
+                            person: predict.person.convertToPerson(),
+                            prefecture: predict.prefecture.convertToPrefecture()
+                        )
+                    } label: {
+                        LabeledContent {
+                            Text(predict.prefecture.name)
+                        } label: {
+                            Label(predict.predictDate.yearMonthDayString, systemImage: "hands.clap")
+                        }
+                    }
+                }
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

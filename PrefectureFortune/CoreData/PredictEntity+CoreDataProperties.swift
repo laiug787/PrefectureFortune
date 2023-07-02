@@ -22,3 +22,7 @@ extension PredictEntity {
     @NSManaged public var prefecture: PrefectureEntity
 
 }
+
+extension PredictEntity : Identifiable {
+
+}

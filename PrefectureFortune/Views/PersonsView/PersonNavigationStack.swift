@@ -25,34 +25,64 @@ struct PersonNavigationStack: View {
                     Text("Prefecture").tag(FavoriteViewStyle.prefectures)
                 }
                 .pickerStyle(.segmented)
+                .listRowBackground(Color.clear)
                 .padding()
+                
                 if personVM.persons.isEmpty {
                     Spacer()
-                    ContentUnavailableView(
-                        text: "No Person",
-                        systemImage: "person.crop.rectangle",
-                        description: "Please add a person"
-                    )
+                    switch viewStyle {
+                    case .users:
+                        ContentUnavailableView(
+                            text: "No Person",
+                            systemImage: "person.crop.square",
+                            description: "Please add a person"
+                        )
+                    case .prefectures:
+                        ContentUnavailableView(
+                            text: "No Prefecture",
+                            systemImage: "mappin.square",
+                            description: "Please add a prefecture"
+                        )
+                    }
                     Spacer()
                 } else {
-                    List {
-                        switch viewStyle {
-                        case .users:
-                            ForEach(personVM.persons) { person in
-                                personListItem(person)
-                                    .padding(.horizontal)
-                            }
-                        case .prefectures:
-                            ForEach(personVM.prefectures) { prefecture in
-                                Text(prefecture.name)
-                            }
-                        }
+                    switch viewStyle {
+                    case .users:
+                        personList()
+                    case .prefectures:
+                        prefectureList()
                     }
-                    .listStyle(.plain)
                 }
             }
             .navigationTitle("Collections")
         }
+    }
+    
+    private func prefectureList() -> some View {
+        List {
+            ForEach(personVM.prefectures) { prefecture in
+                NavigationLink {
+                    PrefectureDetailView(prefecture: prefecture.convertToPrefecture())
+                } label: {
+                    PrefectureListItem(prefecture.convertToPrefecture())
+                }
+            }
+        }
+        .listStyle(.plain)
+    }
+    
+    private func personList() -> some View {
+        List {
+            ForEach(personVM.persons) { person in
+                NavigationLink {
+                    PersonDetailView(person: person)
+                } label: {
+                    personListItem(person)
+                        .padding(.horizontal)
+                }
+            }
+        }
+        .listStyle(.plain)
     }
     
     private func personListItem(_ person: PersonEntity) -> some View {
@@ -67,7 +97,7 @@ struct PersonNavigationStack: View {
                     Text(person.birthday.monthDayString)
                 }
             }
-        } label: {            
+        } label: {
             Label(person.name, systemImage: "person")
                 .font(.title2)
         }
