@@ -100,24 +100,28 @@ struct PersonNavigationStack: View {
     }
     
     private func personListItem(_ person: PersonEntity) -> some View {
-        LabeledContent {
-            Grid(verticalSpacing: 4) {
-                GridRow {
-                    Image(systemName: "drop")
-                    Text(person.bloodType)
-                }
-                GridRow {
-                    Image(systemName: "birthday.cake")
-                    Text(person.birthday.yearMonthDayString)
-                }
-                GridRow {
-                    Image(systemName: "map")
-                    Text("\(person.predicts.count)")
-                }
-            }
-        } label: {
+        VStack(alignment: .leading) {
             Label(person.name, systemImage: "person")
                 .font(.title2)
+            HStack() {
+                HStack {
+                    Image(systemName: "drop.fill")
+                    Text(person.bloodType)
+                }
+                .tagStyle(color: .red)
+                
+                HStack {
+                    Image(systemName: "birthday.cake.fill")
+                    Text(person.birthday.yearMonthDayString)
+                }
+                .tagStyle(color: .orange)
+                
+                HStack {
+                    Image(systemName: "map.fill")
+                    Text("\(person.predicts.count)")
+                }
+                .tagStyle(color: .cyan)
+            }
         }
     }
 }
