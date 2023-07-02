@@ -22,6 +22,10 @@ extension PersonEntity {
         person.creationDate = Date.now
         return person
     }
+    
+    func convertToPerson() -> Person {
+        return Person(name: self.name, birthday: YearMonthDay(date: self.birthday), bloodType: BloodType(rawValue: self.bloodType)!, today: YearMonthDay(date: Date.now))
+    }
 }
 
 extension PredictEntity {
@@ -48,5 +52,9 @@ extension PrefectureEntity {
         prefecture.name = "Japan"
         prefecture.creationDate = Date.now
         return prefecture
+    }
+    
+    func convertToPrefecture() -> Prefecture {
+        return samplePrefectures.first(where: { $0.name == self.name }) ?? Prefecture.preview
     }
 }
