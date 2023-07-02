@@ -17,42 +17,25 @@ struct PrefectureDetailView: View {
     var body: some View {
         ZStack {
             Map(coordinateRegion: $region)
-                .edgesIgnoringSafeArea(.vertical)
-            VStack {
-                Spacer()
-                RoundedRectangle(cornerRadius: 16)
-                    .foregroundColor(.clear)
-                    .background(.ultraThinMaterial, in: Rectangle())
-                    .frame(height: 70)
-            }
-            .edgesIgnoringSafeArea(.vertical)
-            VStack {
-                Spacer()
+                .edgesIgnoringSafeArea(.all)
+            ViewThatFits {
                 VStack {
-                    PrefectureListItem(prefecture)
-                    Divider()
-                    if isExpanded {
-                        Text(prefecture.brief)
-                    } else {
-                        Text("Show more")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+                    Spacer(minLength: 0)
+                    HStack(alignment: .bottom) {
+                        personCard()
+                            .padding(16)
+                        prefectureCard()
+                            .padding(16)
                     }
                 }
-                .glassCardStyle()
-                .onTapGesture {
-                    withAnimation {
-                        isExpanded.toggle()
-                    }
-                }
-                if let person = person {
-                    VStack {
-                        PersonListItem(person)
-                    }
-                    .glassCardStyle()
+                VStack {
+                    personCard()
+                        .padding(16)
+                    Spacer()
+                    prefectureCard()
+                        .padding(16)
                 }
             }
-            .padding(16)
         }
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
@@ -68,12 +51,45 @@ struct PrefectureDetailView: View {
             }
         }
     }
+    
+    private func prefectureCard() -> some View {
+        VStack {
+            PrefectureListItem(prefecture)
+                .frame(minWidth: 300)
+            Divider()
+            if isExpanded {
+                Text(prefecture.brief)
+            } else {
+                Text("Show more")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .frame(height: 25)
+            }
+        }
+        .glassCardStyle()
+        .onTapGesture {
+            withAnimation {
+                isExpanded.toggle()
+            }
+        }
+    }
+    
+    private func personCard() -> some View {
+        Group {
+            if let person = person {
+                PersonListItem(person)
+                    .glassCardStyle()
+            }
+        }
+    }
 }
 
 struct PrefectureDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack {
-            PrefectureDetailView(prefecture: samplePrefectures[1])
+        TabView {
+            NavigationStack {
+                PrefectureDetailView(prefecture: samplePrefectures[1])
+            }
         }
     }
 }
