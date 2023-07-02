@@ -17,21 +17,21 @@ struct PrefectureGridView: View {
                     NavigationLink(value: prefecture) {
                         prefectureGridItem(prefecture)
                     }
-                    .contextMenu {
-                        Button("Star") {
-                            print("Star")
-                        }
-                    } preview: {
-                        AsyncImage(url: URL(string: prefecture.logoUrl)) { image in
-                            image
-                                .resizable()
-                                .scaledToFit()
-                                .shadow(radius: 5)
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .frame(width: 210, height: 210)
-                    }
+//                    .contextMenu {
+//                        Button("Star") {
+//                            print("Star")
+//                        }
+//                    } preview: {
+//                        AsyncImage(url: URL(string: prefecture.logoUrl)) { image in
+//                            image
+//                                .resizable()
+//                                .scaledToFit()
+//                                .shadow(radius: 5)
+//                        } placeholder: {
+//                            ProgressView()
+//                        }
+//                        .frame(width: 210, height: 210)
+//                    }
                 }
             }
             .padding(16)

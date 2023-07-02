@@ -80,7 +80,7 @@ struct PredictRequestListItem: View {
 struct PredictRequestListItem_Previews: PreviewProvider {
     static var previews: some View {
         PredictRequestListItem(person: .constant(Person.preview)) {
-            print("Changed")
+            // code
         }
         .padding()
     }

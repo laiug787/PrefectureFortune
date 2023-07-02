@@ -20,7 +20,7 @@ struct PersonNavigationStack: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Picker("Favorite", selection: $viewStyle) {
+                Picker("Collections", selection: $viewStyle) {
                     Text("Persons").tag(FavoriteViewStyle.users)
                     Text("Prefecture").tag(FavoriteViewStyle.prefectures)
                 }

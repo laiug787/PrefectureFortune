@@ -32,10 +32,10 @@
 "English" = "英語";
 
 /* No comment provided by engineer. */
-"Enter a name" = "名前を入力してください";
+"Enter \n Your Profile" = "あなたについて\n教えて";
 
 /* No comment provided by engineer. */
-"Enter Your Profile" = "プロフィールを入力";
+"Enter a name" = "名前を入力してください";
 
 /* No comment provided by engineer. */
 "Grid" = "アイコン";
@@ -131,6 +131,9 @@
 "Today's horoscope" = "今日の運勢";
 
 /* No comment provided by engineer. */
+"Unknown" = "不明";
+
+/* No comment provided by engineer. */
 "View Details" = "詳細を見る";
 
 /* No comment provided by engineer. */
@@ -143,11 +146,8 @@
 "We will find the best prefectures for you from all over Japan." = "日本全国からあなたにぴったりの都道府県をお探しします。";
 
 /* No comment provided by engineer. */
-"Welcome to PrefectureFortune" = "ようこそ 都道府県占いへ";
+"Welcome to \n PrefectureFortune" = "ようこそ\n都道府県占いへ";
 
 /* No comment provided by engineer. */
 "Who do you want to divine?" = "誰を占う?";
-
-/* No comment provided by engineer. */
-"Your recomended Prefecture" = "今日のおすすめな都道府県";
 
