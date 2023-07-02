@@ -11,6 +11,19 @@ struct SettingNavigationStack: View {
     @Environment(\.editMode) var editMode
     @EnvironmentObject var settingVM: SettingViewModel
     
+    private var language = NSLocale.preferredLanguages.first?.components(separatedBy: "-").first
+    private var languageString: LocalizedStringKey {
+        let language = String(describing: language!)
+        
+        if language == "en" {
+            return "English"
+        } else if language == "ja" {
+            return "Japanses"
+        } else {
+            return "Unknown"
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -34,16 +47,19 @@ struct SettingNavigationStack: View {
                     } icon: {
                         icon(systemName: "circle.lefthalf.fill", color: .gray)
                     }
-                    Button {
-                        settingVM.settingsOpener()
-                    } label: {
+                    HStack {
                         Label {
                             Text("Language")
                         } icon: {
                             icon(systemName: "character.book.closed", color: .gray)
                         }
+                        Spacer()
+                        Button {
+                            settingVM.settingsOpener()
+                        } label: {
+                            Text(languageString)
+                        }
                     }
-                    .buttonStyle(.plain)
                 }
             }
             .navigationTitle("Settings")
