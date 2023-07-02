@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PredictNavigationStackView: View {
     @EnvironmentObject var favoritePrefectureVM: PersonViewModel
+    @EnvironmentObject var settingVM: SettingViewModel
     @StateObject private var predictVM = PredictViewModel()
     @FocusState private var focusedField: FocusedField?
     @State private var isFocusedBefore: Bool = false
@@ -90,6 +91,12 @@ struct PredictNavigationStackView: View {
                 Text("Name can't be blank.")
             }
         }
+        .onAppear {
+            if isFocusedBefore == false {
+                predictVM.person = settingVM.account
+                isFocusedBefore.toggle()
+            }
+        }
     }
     
     private func resetButton() -> some View {
@@ -119,5 +126,6 @@ struct UserRequestView_Previews: PreviewProvider {
     static var previews: some View {
         PredictNavigationStackView()
             .environmentObject(PersonViewModel())
+            .environmentObject(SettingViewModel())
     }
 }
