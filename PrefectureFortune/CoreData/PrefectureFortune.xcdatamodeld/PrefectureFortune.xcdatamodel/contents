@@ -18,6 +18,6 @@
         <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="predict" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PredictEntity" inverseName="prefecture" inverseEntity="PredictEntity"/>
+        <relationship name="predict" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PredictEntity" inverseName="prefecture" inverseEntity="PredictEntity"/>
     </entity>
 </model>
