@@ -86,7 +86,7 @@ struct UserRequestView: View {
     
     private func responseView() -> some View {
         NavigationLink {
-            UserResponseView(user: predictVM.person, prefecture: predictVM.prefecture)
+            PrefectureDetailView(person: predictVM.person, prefecture: predictVM.prefecture)
         } label: {
             PrefectureListItem(predictVM.prefecture)
                 .redacted(reason: predictVM.prefecture == .preview ? .placeholder : [])
