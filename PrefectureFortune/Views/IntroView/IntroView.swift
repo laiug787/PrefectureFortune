@@ -43,6 +43,11 @@ struct IntroView: View {
         VStack {
             pageTitle("Enter Your Profile")
             Spacer()
+            PredictRequestListItem(person: $user) {
+                print("profile changed")
+            }
+            .padding()
+            Spacer()
             pageButton("Predict") {
                 withAnimation {
                     tabSelection = 2
@@ -56,6 +61,9 @@ struct IntroView: View {
     private var prefecturePage: some View {
         VStack {
             pageTitle("Your recomended Prefecture")
+            Spacer()
+            PrefectureListItem(Prefecture.preview)
+                .padding()
             Spacer()
             pageButton("Let's Start") {
                 print("Predict")
