@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IntroView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var personVM: PersonViewModel
     @EnvironmentObject var settingVM: SettingViewModel
     @State private var tabSelection: Int = 0
     
@@ -25,11 +26,24 @@ struct IntroView: View {
                 .contentShape(Rectangle()).gesture(DragGesture())
         }
         .tabViewStyle(.page)
+        .indexViewStyle(.page(backgroundDisplayMode: .never))
     }
     
     private var welcomPage: some View {
         VStack {
-            pageTitle("Welcome to PrefectureFortune")
+            pageTitle("Welcome to \n PrefectureFortune")
+            Spacer()
+            Grid {
+                GridRow {
+                    Image(systemName: "hands.clap")
+                    Image(systemName: "person.crop.rectangle.stack")
+                }
+                GridRow {
+                    Image(systemName: "magnifyingglass")
+                    Image(systemName: "gear")
+                }
+            }
+            .font(.system(size: 100))
             Spacer()
             pageButton("Next") {
                 withAnimation {
@@ -42,10 +56,10 @@ struct IntroView: View {
     
     private var userPage: some View {
         VStack {
-            pageTitle("Enter Your Profile")
+            pageTitle("Enter \n Your Profile")
             Spacer()
             PredictRequestListItem(person: $settingVM.account) {
-                print("profile changed")
+                // code
             }
             .padding()
             Spacer()
@@ -62,12 +76,13 @@ struct IntroView: View {
     
     private var prefecturePage: some View {
         VStack {
-            pageTitle("Your recomended Prefecture")
+            pageTitle("Today's horoscope")
             Spacer()
             PrefectureListItem(settingVM.prefecture)
                 .padding()
             Spacer()
             pageButton("Let's Start") {
+                personVM.addToFavorite(settingVM.account, settingVM.prefecture)
                 dismiss()
             }
         }
@@ -107,5 +122,6 @@ struct IntroView_Previews: PreviewProvider {
             IntroView()
         }
         .environmentObject(SettingViewModel())
+        .environmentObject(PersonViewModel.preview)
     }
 }
