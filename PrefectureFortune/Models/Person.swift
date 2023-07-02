@@ -27,6 +27,18 @@ extension Person {
         
         return Person(name: name, birthday: birthday, bloodType: bloodType, today: today)
     }
+    
+    func encodeToData() throws -> Data {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted // Specify format
+        encoder.keyEncodingStrategy = .convertToSnakeCase // CamelCase to SnakeCase
+        
+        do {
+            return try encoder.encode(self)
+        } catch {
+            throw APIError.invalidEncode
+        }
+    }
 }
 
 struct YearMonthDay: Codable {
