@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Person: Identifiable, Codable {
+struct Person: Identifiable, Codable, Equatable {
     var name: String
     var birthday: YearMonthDay
     var bloodType: BloodType
@@ -15,6 +15,10 @@ struct Person: Identifiable, Codable {
     
     var id: String {
         self.name
+    }
+    
+    static func == (lhs: Person, rhs: Person) -> Bool {
+        return (lhs.name == rhs.name && lhs.birthday == rhs.birthday && lhs.bloodType == rhs.bloodType)
     }
 }
 
@@ -41,7 +45,7 @@ extension Person {
     }
 }
 
-struct YearMonthDay: Codable {
+struct YearMonthDay: Codable, Equatable {
     var year: Int
     var month: Int
     var day: Int
@@ -78,6 +82,10 @@ struct YearMonthDay: Codable {
         self.year = calendar.component(.year, from: date)
         self.month = calendar.component(.month, from: date)
         self.day = calendar.component(.day, from: date)
+    }
+    
+    static func == (lhs: YearMonthDay, rhs: YearMonthDay) -> Bool {
+        return (lhs.year == rhs.year && lhs.month == rhs.month && lhs.day == rhs.day)
     }
 }
 
