@@ -8,7 +8,7 @@
 import Foundation
 
 extension Date {
-    func yearMonthDayString() -> String {
+    var yearMonthDayString: String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.dateStyle = .medium
@@ -17,7 +17,7 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
-    func monthDayString() -> String {
+    var monthDayString: String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.dateStyle = .medium

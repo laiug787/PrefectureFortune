@@ -33,7 +33,7 @@ struct PrefectureTableView: View {
             }
             
             TableColumn("Citizen Day") { prefecture in
-                Text(prefecture.citizenDay?.date.monthDayString() ?? "")
+                Text(prefecture.citizenDay?.date.monthDayString ?? "")
             }
             
             TableColumn("Has Coast Line") { prefecture in

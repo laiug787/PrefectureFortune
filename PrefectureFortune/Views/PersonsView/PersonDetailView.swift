@@ -26,7 +26,7 @@ struct PersonDetailView: View {
                         LabeledContent {
                             Text(predict.prefecture.name)
                         } label: {
-                            Label(predict.predictDate.yearMonthDayString(), systemImage: "hands.clap")
+                            Label(predict.predictDate.yearMonthDayString, systemImage: "hands.clap")
                         }
                     }
                 }
