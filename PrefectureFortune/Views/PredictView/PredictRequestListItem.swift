@@ -43,7 +43,7 @@ struct PredictRequestListItem: View {
                         }
                 }
             } icon: {
-                icon(systemName: "person.fill", color: .blue)
+                LabelIcon(systemName: "person.fill", color: .blue)
             }
             .padding(.bottom, 4)
             
@@ -53,7 +53,7 @@ struct PredictRequestListItem: View {
                         onChange()
                     }
             } icon: {
-                icon(systemName: "birthday.cake.fill", color: .orange)
+                LabelIcon(systemName: "birthday.cake.fill", color: .orange)
             }
             .padding(.bottom, 2)
             
@@ -71,17 +71,9 @@ struct PredictRequestListItem: View {
                 }
                 .frame(maxWidth: 410)
             } icon: {
-                icon(systemName: "drop.fill", color: .red)
+                LabelIcon(systemName: "drop.fill", color: .red)
             }
         }
-    }
-    
-    private func icon(systemName: String, color: Color) -> some View {
-        Image(systemName: systemName)
-            .frame(width: 26, height: 26)
-            .background(in: RoundedRectangle(cornerRadius: 5, style: .continuous))
-            .backgroundStyle(color.gradient)
-            .foregroundStyle(.white.shadow(.drop(radius: 1)))
     }
 }
 
