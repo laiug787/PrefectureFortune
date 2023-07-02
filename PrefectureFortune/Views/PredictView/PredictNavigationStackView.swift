@@ -27,7 +27,7 @@ struct PredictNavigationStackView: View {
                 } header: {
                     Text("Information")
                 } footer: {
-                    Text("Who would you like to tell your fortune to?")
+                    Text("Who do you want to divine?")
                 }
                 Section {
                     NavigationLink {

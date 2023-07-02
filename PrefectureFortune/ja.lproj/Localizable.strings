@@ -1,7 +1,4 @@
 /* No comment provided by engineer. */
-"Add" = "追加";
-
-/* No comment provided by engineer. */
 "Appearance" = "外観";
 
 /* No comment provided by engineer. */
@@ -23,10 +20,16 @@
 "Dark" = "ダーク";
 
 /* No comment provided by engineer. */
+"Delete" = "削除";
+
+/* No comment provided by engineer. */
 "Details" = "詳細";
 
 /* No comment provided by engineer. */
 "Display" = "表示";
+
+/* No comment provided by engineer. */
+"English" = "英語";
 
 /* No comment provided by engineer. */
 "Enter a name" = "名前を入力してください";
@@ -42,6 +45,9 @@
 
 /* No comment provided by engineer. */
 "Information" = "情報";
+
+/* No comment provided by engineer. */
+"Japanses" = "日本語";
 
 /* No comment provided by engineer. */
 "Language" = "言語";
@@ -68,6 +74,12 @@
 "Next" = "次へ";
 
 /* No comment provided by engineer. */
+"No Person" = "該当者なし";
+
+/* No comment provided by engineer. */
+"No Prefecture" = "該当なし";
+
+/* No comment provided by engineer. */
 "OK" = "OK";
 
 /* No comment provided by engineer. */
@@ -80,6 +92,9 @@
 "Please add a person" = "人を追加してください";
 
 /* No comment provided by engineer. */
+"Please add a prefecture" = "都道府県を追加してください";
+
+/* No comment provided by engineer. */
 "Predict" = "占う";
 
 /* No comment provided by engineer. */
@@ -89,16 +104,13 @@
 "Prefecture Fortune" = "都道府県 占い";
 
 /* No comment provided by engineer. */
-"Recommended for this person" = "この人におすすめ";
-
-/* No comment provided by engineer. */
 "Recommended Prefecture" = "おすすめする都道府県";
 
 /* No comment provided by engineer. */
 "Reset" = "リセット";
 
 /* No comment provided by engineer. */
-"Results" = "結果";
+"Save" = "保存";
 
 /* No comment provided by engineer. */
 "Search" = "検索";
@@ -132,6 +144,9 @@
 
 /* No comment provided by engineer. */
 "Welcome to PrefectureFortune" = "ようこそ 都道府県占いへ";
+
+/* No comment provided by engineer. */
+"Who do you want to divine?" = "誰を占う?";
 
 /* No comment provided by engineer. */
 "Your recomended Prefecture" = "今日のおすすめな都道府県";
