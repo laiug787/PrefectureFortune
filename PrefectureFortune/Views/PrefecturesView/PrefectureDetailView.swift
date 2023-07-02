@@ -16,24 +16,14 @@ struct PrefectureDetailView: View {
     var body: some View {
         ZStack {
             Map(coordinateRegion: $region)
-                .edgesIgnoringSafeArea(.vertical)
             VStack {
-                HStack {
-                    Spacer()
-                    Button {
-                        print("")
-                    } label: {
-                        Image(systemName: "star.fill")
-                            .resizable()
-                            .frame(width: 30.0, height: 30.0)
-                            .padding()
-                    }
-                    .tint(.yellow)
-                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
-                    .compositingGroup()
-                    .shadow(radius: 4)
-                    .padding()
-                }
+                Spacer()
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundColor(.clear)
+                    .background(.ultraThinMaterial, in: Rectangle())
+                    .frame(height: 70)
+            }
+            VStack {
                 Spacer()
                 VStack {
                     PrefectureListItem(prefecture)
@@ -60,6 +50,7 @@ struct PrefectureDetailView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .edgesIgnoringSafeArea(.vertical)
         .onAppear {
             let address = prefecture.capital
             CLGeocoder().geocodeAddressString(address) { placemarks, error in
