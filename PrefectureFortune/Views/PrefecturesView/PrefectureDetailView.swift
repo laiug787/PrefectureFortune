@@ -9,6 +9,11 @@ import SwiftUI
 import MapKit
 
 struct PrefectureDetailView: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    var prefersTabNavigation: Bool {
+        return horizontalSizeClass == .compact
+    }
+    
     var person: Person? = nil
     var prefecture: Prefecture
     @State private var region = MKCoordinateRegion()
@@ -17,7 +22,7 @@ struct PrefectureDetailView: View {
     var body: some View {
         ZStack {
             Map(coordinateRegion: $region)
-                .edgesIgnoringSafeArea(.all)
+                .edgesIgnoringSafeArea(prefersTabNavigation ? .top : .all)
             ViewThatFits {
                 VStack {
                     Spacer(minLength: 0)
