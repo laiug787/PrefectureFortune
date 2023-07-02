@@ -28,28 +28,28 @@ struct PersonNavigationStack: View {
                 .listRowBackground(Color.clear)
                 .padding()
                 
-                if personVM.persons.isEmpty {
-                    Spacer()
-                    switch viewStyle {
-                    case .users:
+                if viewStyle == .users {
+                    if personVM.persons.isEmpty {
+                        Spacer()
                         ContentUnavailableView(
                             text: "No Person",
                             systemImage: "person.crop.square",
                             description: "Please add a person"
                         )
-                    case .prefectures:
+                        Spacer()
+                    } else {
+                        personList()
+                    }
+                } else if viewStyle == .prefectures {
+                    if personVM.prefectures.isEmpty {
+                        Spacer()
                         ContentUnavailableView(
                             text: "No Prefecture",
                             systemImage: "mappin.square",
                             description: "Please add a prefecture"
                         )
-                    }
-                    Spacer()
-                } else {
-                    switch viewStyle {
-                    case .users:
-                        personList()
-                    case .prefectures:
+                        Spacer()
+                    } else {
                         prefectureList()
                     }
                 }
