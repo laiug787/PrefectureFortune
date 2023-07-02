@@ -30,17 +30,16 @@ struct PredictNavigationStackView: View {
                     Text("Who would you like to tell your fortune to?")
                 }
                 Section {
-                    responseView()
-                        .disabled(predictVM.prefecture == .preview)
-                } header: {
-                    HStack {
-                        Text("Recommended Prefecture")
-                        Spacer()
-                        Button("Save") {
-                            favoritePrefectureVM.addToFavorite(predictVM.person, predictVM.prefecture)
-                        }
-                        .disabled(predictVM.prefecture == .preview)
+                    NavigationLink {
+                        PrefectureDetailView(person: predictVM.person, prefecture: predictVM.prefecture)
+                    } label: {
+                        PrefectureListItem(predictVM.prefecture)
+                            .redacted(reason: predictVM.prefecture == .preview ? .placeholder : [])
+                            .frame(height: 100)
                     }
+                    .disabled(predictVM.prefecture == .preview)
+                } header: {
+                    Text("Recommended Prefecture")
                 } footer: {
                     if predictVM.prefecture == .preview {
                         Text("We will find the best prefectures for you from all over Japan.")
@@ -70,11 +69,6 @@ struct PredictNavigationStackView: View {
                 }
                 .padding()
             }
-            .onAppear {
-                guard !isFocusedBefore else { return }
-                focusedField = .name
-                isFocusedBefore.toggle()
-            }
             .simultaneousGesture(
                 DragGesture()
                     .onChanged { _ in
@@ -91,29 +85,9 @@ struct PredictNavigationStackView: View {
         }
     }
     
-    private func responseView() -> some View {
-        NavigationLink {
-            PrefectureDetailView(person: predictVM.person, prefecture: predictVM.prefecture)
-        } label: {
-            PrefectureListItem(predictVM.prefecture)
-                .redacted(reason: predictVM.prefecture == .preview ? .placeholder : [])
-                .frame(height: 100)
-        }
-        .contextMenu {
-            addToFavoriteButton()
-        }
-    }
-    
-    private func addToFavoriteButton() -> some View {
-        Button {
-            favoritePrefectureVM.addToFavorite(predictVM.person, predictVM.prefecture)
-        } label: {
-            Label("Add", systemImage: "star")
-        }
-    }
-    
     private func resetButton() -> some View {
         Button {
+            focusedField = .name
             predictVM.resetPrefecture()
         } label: {
             Label("Reset", systemImage: "arrow.triangle.2.circlepath")
@@ -122,8 +96,13 @@ struct PredictNavigationStackView: View {
     
     private func predictButton() -> some View {
         Button {
-            predictVM.predict()
             focusedField = nil
+            if !predictVM.person.name.isEmpty {
+                predictVM.predict()
+                favoritePrefectureVM.addToFavorite(predictVM.person, predictVM.prefecture)
+            } else {
+                predictVM.showingAlert.toggle()
+            }
         } label: {
             Label("Predict", systemImage: "magnifyingglass")
         }

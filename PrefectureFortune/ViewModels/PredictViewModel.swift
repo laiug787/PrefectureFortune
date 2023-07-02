@@ -27,10 +27,6 @@ final class PredictViewModel: ObservableObject {
     
     @MainActor
     func predict() {
-        guard !person.name.isEmpty else {
-            showingAlert.toggle()
-            return
-        }
         Task {
             do {
                 let prefecture = try await prefectureFetcher.fetchPrefectureData(person: person)
