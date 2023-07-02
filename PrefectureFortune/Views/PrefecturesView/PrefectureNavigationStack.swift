@@ -37,7 +37,7 @@ struct PrefectureNavigationStack: View {
             .navigationDestination(for: Prefecture.self) { prefecture in
                 PrefectureDetailView(prefecture: prefecture)
             }
-//            .searchable(text: $prefectureVM.searchText)
+            .searchable(text: $prefectureVM.searchText)
             .toolbar {
                 ToolbarItem {
                     Picker("ViewStyle", selection: $prefectureVM.viewStyle) {
