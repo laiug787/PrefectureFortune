@@ -9,6 +9,7 @@ import SwiftUI
 import MapKit
 
 struct PrefectureDetailView: View {
+    var person: Person? = nil
     var prefecture: Prefecture
     @State private var region = MKCoordinateRegion()
     @State private var isExpanded: Bool = false
@@ -16,6 +17,7 @@ struct PrefectureDetailView: View {
     var body: some View {
         ZStack {
             Map(coordinateRegion: $region)
+                .edgesIgnoringSafeArea(.vertical)
             VStack {
                 Spacer()
                 RoundedRectangle(cornerRadius: 16)
@@ -23,6 +25,7 @@ struct PrefectureDetailView: View {
                     .background(.ultraThinMaterial, in: Rectangle())
                     .frame(height: 70)
             }
+            .edgesIgnoringSafeArea(.vertical)
             VStack {
                 Spacer()
                 VStack {
@@ -36,21 +39,22 @@ struct PrefectureDetailView: View {
                             .foregroundColor(.secondary)
                     }
                 }
-                .padding(16)
-                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
-                .frame(minWidth: 90, maxWidth: 350)
-                .padding(16)
-                .compositingGroup()
-                .shadow(radius: 8)
+                .glassCardStyle()
                 .onTapGesture {
                     withAnimation {
                         isExpanded.toggle()
                     }
                 }
+                if let person = person {
+                    VStack {
+                        PersonListItem(person)
+                    }
+                    .glassCardStyle()
+                }
             }
+            .padding(16)
         }
         .navigationBarTitleDisplayMode(.inline)
-        .edgesIgnoringSafeArea(.vertical)
         .onAppear {
             let address = prefecture.capital
             CLGeocoder().geocodeAddressString(address) { placemarks, error in
