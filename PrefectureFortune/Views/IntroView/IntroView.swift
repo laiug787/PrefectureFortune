@@ -72,7 +72,7 @@ struct IntroView: View {
             Spacer()
             pageButton("Predict") {
                 settingVM.predict()
-                if settingVM.showingOfflineAlert {
+                if !settingVM.showingOfflineAlert {
                     withAnimation {
                         tabSelection = 2
                     }
