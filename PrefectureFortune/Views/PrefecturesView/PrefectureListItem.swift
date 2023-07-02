@@ -21,7 +21,7 @@ struct PrefectureListItem: View {
                     ViewThatFits(in: .horizontal) {
                         HStack {
                             Image(systemName: "calendar")
-                            Text(citizenDay.date.monthDayString)
+                            Text(citizenDay.date.monthDayString())
                         }
                         .frame(width: 90, alignment: .trailing)
                         Image(systemName: "calendar")

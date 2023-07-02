@@ -108,7 +108,7 @@ struct PersonNavigationStack: View {
                 }
                 GridRow {
                     Image(systemName: "birthday.cake")
-                    Text(person.birthday.monthDayString)
+                    Text(person.birthday.monthDayString())
                 }
             }
         } label: {

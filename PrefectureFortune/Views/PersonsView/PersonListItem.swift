@@ -29,7 +29,7 @@ struct PersonListItem: View {
             Divider()
             
             LabeledContent {
-                Text(person.birthday.date.yearMonthDayString)
+                Text(person.birthday.date.yearMonthDayString())
             } label: {
                 Label {
                     Text("Birthday")

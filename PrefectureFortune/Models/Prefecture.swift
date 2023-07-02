@@ -60,23 +60,3 @@ struct MonthDay: Hashable, Codable {
         self.day = calendar.component(.day, from: date)
     }
 }
-
-extension Date {
-    var yearMonthDayString: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.dateStyle = .medium
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        
-        return dateFormatter.string(from: self)
-    }
-    
-    var monthDayString: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ja_JP")
-        dateFormatter.dateStyle = .medium
-        dateFormatter.dateFormat = "MM/dd"
-        
-        return dateFormatter.string(from: self)
-    }
-}
