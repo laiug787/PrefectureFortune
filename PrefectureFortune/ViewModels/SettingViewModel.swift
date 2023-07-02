@@ -14,6 +14,10 @@ final class SettingViewModel: ObservableObject {
     @AppStorage("accountBirthday") var accountBirthday: String = Date.now.rawValue
     @AppStorage("accountBloodType") var accountBloodType: BloodType = .ab
     
+    @Published var prefecture: Prefecture = Prefecture.preview
+    
+    private var prefectureFetcher: PrefectureFetcher = PrefectureFetcher()
+    
     var account: Person {
         get {
             return Person(
@@ -42,6 +46,29 @@ final class SettingViewModel: ObservableObject {
         guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    @MainActor
+    func predict() {
+        guard !accountName.isEmpty else {
+            return
+        }
+        Task {
+            do {
+                let prefecture = try await prefectureFetcher.fetchPrefectureData(person: account)
+                self.prefecture = prefecture
+            } catch APIError.invalidURL {
+                print("invalid URL")
+            } catch APIError.invalidRequest {
+                print("invalid request")
+            } catch APIError.invalidResponse {
+                print("invalid response")
+            } catch APIError.invalidEncode {
+                print("invalid encode")
+            } catch APIError.invalidDecode {
+                print("invalid decode")
+            }
         }
     }
 }

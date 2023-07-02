@@ -50,6 +50,7 @@ struct IntroView: View {
             .padding()
             Spacer()
             pageButton("Predict") {
+                settingVM.predict()
                 withAnimation {
                     tabSelection = 2
                 }
@@ -63,7 +64,7 @@ struct IntroView: View {
         VStack {
             pageTitle("Your recomended Prefecture")
             Spacer()
-            PrefectureListItem(Prefecture.preview)
+            PrefectureListItem(settingVM.prefecture)
                 .padding()
             Spacer()
             pageButton("Let's Start") {
