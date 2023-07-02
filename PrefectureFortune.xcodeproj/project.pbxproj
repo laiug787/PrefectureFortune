@@ -175,9 +175,9 @@
 			children = (
 				6F63DB642A50A989007EBA3C /* IntroView */,
 				6F7DB77C2A4A0E7B00431383 /* NavigationView */,
-				6F7DB77D2A4A0E9C00431383 /* PrefecturesView */,
-				6F7DB77E2A4A0EB600431383 /* PersonsView */,
 				6F7DB7802A4A0EDC00431383 /* PredictView */,
+				6F7DB77E2A4A0EB600431383 /* PersonsView */,
+				6F7DB77D2A4A0E9C00431383 /* PrefecturesView */,
 				6F7DB77F2A4A0ED000431383 /* SettingsView */,
 			);
 			path = Views;

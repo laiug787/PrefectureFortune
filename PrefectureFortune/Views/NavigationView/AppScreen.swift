@@ -21,7 +21,7 @@ extension AppScreen {
     var label: some View {
         switch self {
         case .predict:
-            Label("Predict", systemImage: "hands.clap.fill")
+            Label("Predict", systemImage: "hands.clap")
         case .persons:
             Label("Collections", systemImage: "person.crop.rectangle.stack")
         case .prefectures:
