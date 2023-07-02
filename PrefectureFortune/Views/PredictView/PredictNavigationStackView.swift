@@ -33,7 +33,14 @@ struct PredictNavigationStackView: View {
                     responseView()
                         .disabled(predictVM.prefecture == .preview)
                 } header: {
-                    Text("Recommended Prefecture")
+                    HStack {
+                        Text("Recommended Prefecture")
+                        Spacer()
+                        Button("Save") {
+                            favoritePrefectureVM.addToFavorite(predictVM.person, predictVM.prefecture)
+                        }
+                        .disabled(predictVM.prefecture == .preview)
+                    }
                 } footer: {
                     if predictVM.prefecture == .preview {
                         Text("We will find the best prefectures for you from all over Japan.")
