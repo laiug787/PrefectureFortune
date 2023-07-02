@@ -80,7 +80,7 @@ struct PersonNavigationStack: View {
     
     private func personList() -> some View {
         List {
-            ForEach(personVM.persons) { person in
+            ForEach(personVM.persons, id: \.self) { person in
                 NavigationLink {
                     PersonDetailView(person: person)
                 } label: {
@@ -108,7 +108,11 @@ struct PersonNavigationStack: View {
                 }
                 GridRow {
                     Image(systemName: "birthday.cake")
-                    Text(person.birthday.monthDayString())
+                    Text(person.birthday.description)
+                }
+                GridRow {
+                    Image(systemName: "map")
+                    Text("\(person.predicts.count)")
                 }
             }
         } label: {
