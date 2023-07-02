@@ -9,8 +9,8 @@ import SwiftUI
 
 struct IntroView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var settingVM: SettingViewModel
     @State private var tabSelection: Int = 0
-    @State private var user: Person = Person(name: "", birthday: YearMonthDay(date: .now), bloodType: .ab, today: YearMonthDay(date: .now))
     
     var body: some View {
         TabView(selection: $tabSelection) {
@@ -44,7 +44,7 @@ struct IntroView: View {
         VStack {
             pageTitle("Enter Your Profile")
             Spacer()
-            PredictRequestListItem(person: $user) {
+            PredictRequestListItem(person: $settingVM.account) {
                 print("profile changed")
             }
             .padding()
@@ -54,7 +54,7 @@ struct IntroView: View {
                     tabSelection = 2
                 }
             }
-            .disabled(user.name.isEmpty)
+            .disabled(settingVM.account.name.isEmpty)
         }
         .padding()
     }
@@ -105,5 +105,6 @@ struct IntroView_Previews: PreviewProvider {
         NavigationStack {
             IntroView()
         }
+        .environmentObject(SettingViewModel())
     }
 }

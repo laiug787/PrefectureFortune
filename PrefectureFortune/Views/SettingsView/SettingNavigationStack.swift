@@ -8,15 +8,14 @@
 import SwiftUI
 
 struct SettingNavigationStack: View {
-    @StateObject private var settingVM = SettingViewModel()
+    @EnvironmentObject var settingVM: SettingViewModel
     @State private var presentingEditAccountSheet: Bool = false
-    @State private var account: Person = .preview
     
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    PersonListItem(account)
+                    PersonListItem(settingVM.account)
                 } header: {
                     HStack {
                         Text("My Information")
@@ -55,7 +54,7 @@ struct SettingNavigationStack: View {
             }
             .navigationTitle("Settings")
             .sheet(isPresented: $presentingEditAccountSheet) {
-                EditAccountForm(account: $account)
+                EditAccountForm(account: $settingVM.account)
             }
         }
     }
@@ -72,5 +71,6 @@ struct SettingNavigationStack: View {
 struct SettingNavigationStack_Previews: PreviewProvider {
     static var previews: some View {
         SettingNavigationStack()
+            .environmentObject(SettingViewModel())
     }
 }

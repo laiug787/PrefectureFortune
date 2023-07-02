@@ -25,5 +25,6 @@ struct AppTabView_Previews: PreviewProvider {
     static var previews: some View {
         AppTabView(selection: .constant(.predict))
             .environmentObject(PersonViewModel())
+            .environmentObject(SettingViewModel())
     }
 }

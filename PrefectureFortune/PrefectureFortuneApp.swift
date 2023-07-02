@@ -14,6 +14,7 @@ struct PrefectureFortuneApp: App {
             ContentView()
                 .modifier(AppearanceModifier())
                 .environmentObject(PersonViewModel())
+                .environmentObject(SettingViewModel())
         }
     }
 }
