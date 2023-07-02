@@ -45,6 +45,8 @@ struct PredictRequestListItem: View {
             } icon: {
                 icon(systemName: "person.fill", color: .blue)
             }
+            .padding(.bottom, 4)
+            
             Label {
                 DatePicker("Birthday", selection: $person.birthday.date, displayedComponents: .date)
                     .onChange(of: person.birthday.date) { _ in
@@ -53,6 +55,8 @@ struct PredictRequestListItem: View {
             } icon: {
                 icon(systemName: "birthday.cake.fill", color: .orange)
             }
+            .padding(.bottom, 2)
+            
             Label {
                 Text("Blood Type")
                 Spacer()
