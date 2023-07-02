@@ -8,27 +8,21 @@
 import SwiftUI
 
 struct SettingNavigationStack: View {
+    @Environment(\.editMode) var editMode
     @EnvironmentObject var settingVM: SettingViewModel
-    @State private var presentingEditAccountSheet: Bool = false
     
     var body: some View {
         NavigationStack {
             Form {
                 Section {
-                    PersonListItem(settingVM.account)
+                    EditAccountForm(person: $settingVM.account)
                 } header: {
                     HStack {
                         Text("My Information")
                         Spacer()
-                        Button {
-                            presentingEditAccountSheet = true
-                        } label: {
-                            Label("Edit Account", systemImage: "pencil")
-                                .labelStyle(.iconOnly)
-                        }
+                        EditButton()
                     }
                 }
-                
                 Section("Display") {
                     Label {
                         Picker("Appearance", selection: $settingVM.appearanceMode) {
@@ -53,9 +47,6 @@ struct SettingNavigationStack: View {
                 }
             }
             .navigationTitle("Settings")
-            .sheet(isPresented: $presentingEditAccountSheet) {
-                EditAccountForm(account: $settingVM.account)
-            }
         }
     }
     
