@@ -18,7 +18,7 @@ struct UserRequestView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 Section {
                     PredictRequestListItem(person: $predictVM.person) {
