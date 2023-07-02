@@ -21,7 +21,9 @@ struct UserRequestView: View {
         NavigationStack {
             List {
                 Section {
-                    requestView()
+                    PredictRequestListItem(person: $predictVM.person) {
+                        predictVM.resetPrefecture()
+                    }
                 } header: {
                     Text("Information")
                 } footer: {
@@ -82,70 +84,6 @@ struct UserRequestView: View {
         }
     }
     
-    private func requestView() -> some View {
-        Group {
-            Label {
-                HStack {
-                    TextField("Name", text: $predictVM.person.name)
-                        .focused($focusedField, equals: .name)
-                        .onChange(of: predictVM.person.name) { _ in
-                            predictVM.resetPrefecture()
-                        }
-                        .onReceive(NotificationCenter.default.publisher(for: UITextField.textDidBeginEditingNotification)){ obj in
-                            // Process to select all text
-                            if let textField = obj.object as? UITextField {
-                                textField.selectedTextRange = textField.textRange(
-                                    from: textField.beginningOfDocument,
-                                    to: textField.endOfDocument
-                                )
-                            }
-                        }
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundStyle(.tertiary)
-                        .foregroundColor(.primary)
-                        .onTapGesture {
-                            focusedField = .name
-                            predictVM.person.name = ""
-                        }
-                }
-            } icon: {
-                icon(systemName: "person.fill", color: .blue)
-            }
-            Label {
-                DatePicker("Birthday", selection: $predictVM.person.birthday.date, displayedComponents: .date)
-                    .onChange(of: predictVM.person.birthday.date) { _ in
-                        predictVM.resetPrefecture()
-                    }
-            } icon: {
-                icon(systemName: "birthday.cake.fill", color: .orange)
-            }
-            Label {
-                Text("Blood Type")
-                Spacer()
-                Picker("Blood type", selection: $predictVM.person.bloodType) {
-                    ForEach(BloodType.allCases) { type in
-                        Text(type.rawValue.uppercased()).tag(type.id)
-                    }
-                }
-                .pickerStyle(.segmented)
-                .onChange(of: predictVM.person.bloodType) { _ in
-                    predictVM.resetPrefecture()
-                }
-                .frame(maxWidth: 410)
-            } icon: {
-                icon(systemName: "drop.fill", color: .red)
-            }
-        }
-    }
-    
-    private func icon(systemName: String, color: Color) -> some View {
-        Image(systemName: systemName)
-            .frame(width: 26, height: 26)
-            .background(in: RoundedRectangle(cornerRadius: 5, style: .continuous))
-            .backgroundStyle(color.gradient)
-            .foregroundStyle(.white.shadow(.drop(radius: 1)))
-    }
-    
     private func responseView() -> some View {
         NavigationLink {
             UserResponseView(user: predictVM.person, prefecture: predictVM.prefecture)
@@ -160,7 +98,7 @@ struct UserRequestView: View {
     }
     
     private func addToFavoriteButton() -> some View {
-        Button {            
+        Button {
             favoritePrefectureVM.addToFavorite(predictVM.person, predictVM.prefecture)
         } label: {
             Label("Add", systemImage: "star")
