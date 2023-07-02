@@ -35,7 +35,7 @@ extension AppScreen {
     var destination: some View {
         switch self {
         case .predict:
-            UserRequestView()
+            PredictNavigationStackView()
         case .persons:
             PersonNavigationStack()
         case .prefectures:

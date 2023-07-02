@@ -1,5 +1,5 @@
 //
-//  UserRequestView.swift
+//  PredictNavigationStackView.swift
 //  PrefectureFortune
 //
 //  Created by Yusho Segawa on 2023/06/26
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UserRequestView: View {
+struct PredictNavigationStackView: View {
     @EnvironmentObject var favoritePrefectureVM: PersonViewModel
     @StateObject private var predictVM = PredictViewModel()
     @FocusState private var focusedField: FocusedField?
@@ -125,7 +125,7 @@ struct UserRequestView: View {
 
 struct UserRequestView_Previews: PreviewProvider {
     static var previews: some View {
-        UserRequestView()
+        PredictNavigationStackView()
             .environmentObject(PersonViewModel())
     }
 }
