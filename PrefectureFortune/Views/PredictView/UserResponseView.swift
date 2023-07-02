@@ -41,11 +41,11 @@ struct UserResponseView: View {
                 Text(prefecture.brief)
             }
             
-            Section("Recommended for") {
+            Section("Recommended for this person") {
                 PersonListItem(user)
             }
         }
-        .navigationTitle("Your Results")
+        .navigationTitle("Results")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

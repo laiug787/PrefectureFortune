@@ -27,7 +27,7 @@ struct UserRequestView: View {
                 } header: {
                     Text("Information")
                 } footer: {
-                    Text("Person you want to tell a fortune for.")
+                    Text("Who would you like to tell your fortune to?")
                 }
                 Section {
                     responseView()
@@ -42,7 +42,7 @@ struct UserRequestView: View {
                     }
                 }
             }
-            .navigationTitle("Predict Prefecture")
+            .navigationTitle("Today's horoscope")
             .navigationBarTitleDisplayMode(.large)
             .overlay {
                 VStack {

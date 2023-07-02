@@ -44,7 +44,7 @@ struct PersonListItem: View {
                 Text(person.bloodType.rawValue.uppercased())
             } label: {
                 Label {
-                    Text("Blood Type")
+                    Text("Blood type")
                 } icon: {
                     icon(systemName: "drop.fill", color: .red)
                 }

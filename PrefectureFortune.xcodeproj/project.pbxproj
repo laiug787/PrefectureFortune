@@ -24,6 +24,7 @@
 		6F63DB662A50A9F9007EBA3C /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DB652A50A9F8007EBA3C /* IntroView.swift */; };
 		6F63DB682A51427F007EBA3C /* PredictRequestListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DB672A51427F007EBA3C /* PredictRequestListItem.swift */; };
 		6F63DB6B2A514BA2007EBA3C /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DB6A2A514BA2007EBA3C /* Data.swift */; };
+		6F63DB6E2A518CC2007EBA3C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F63DB6C2A518CC2007EBA3C /* Localizable.strings */; };
 		6F7DB7752A4A0B7900431383 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DB7742A4A0B7900431383 /* AppTabView.swift */; };
 		6F7DB7772A4A0C0000431383 /* PrefectureNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DB7762A4A0C0000431383 /* PrefectureNavigationStack.swift */; };
 		6F7DB7792A4A0D4300431383 /* PersonNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DB7782A4A0D4300431383 /* PersonNavigationStack.swift */; };
@@ -71,6 +72,7 @@
 		6F63DB652A50A9F8007EBA3C /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		6F63DB672A51427F007EBA3C /* PredictRequestListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictRequestListItem.swift; sourceTree = "<group>"; };
 		6F63DB6A2A514BA2007EBA3C /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		6F63DB6D2A518CC2007EBA3C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6F7DB7742A4A0B7900431383 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		6F7DB7762A4A0C0000431383 /* PrefectureNavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureNavigationStack.swift; sourceTree = "<group>"; };
 		6F7DB7782A4A0D4300431383 /* PersonNavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonNavigationStack.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		6F474CE62A48A1210019483F /* PrefectureFortune */ = {
 			isa = PBXGroup;
 			children = (
+				6F63DB6C2A518CC2007EBA3C /* Localizable.strings */,
 				6F474CE72A48A1210019483F /* PrefectureFortuneApp.swift */,
 				6F474CE92A48A1210019483F /* ContentView.swift */,
 				6F816D052A5027C700EA297E /* CoreData */,
@@ -321,6 +324,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 6F474CDB2A48A1210019483F;
 			productRefGroup = 6F474CE52A48A1210019483F /* Products */;
@@ -338,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F474CEF2A48A1220019483F /* Preview Assets.xcassets in Resources */,
+				6F63DB6E2A518CC2007EBA3C /* Localizable.strings in Resources */,
 				6F474CEC2A48A1220019483F /* Assets.xcassets in Resources */,
 				6F7DB7822A4A1B8000431383 /* prefectures-v1.json in Resources */,
 			);
@@ -393,6 +398,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6F63DB6C2A518CC2007EBA3C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F63DB6D2A518CC2007EBA3C /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6F474CF02A48A1220019483F /* Debug */ = {

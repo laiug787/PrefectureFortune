@@ -18,7 +18,7 @@ struct SettingNavigationStack: View {
                     EditAccountForm(person: $settingVM.account)
                 } header: {
                     HStack {
-                        Text("My Information")
+                        Text("My account")
                         Spacer()
                         EditButton()
                     }

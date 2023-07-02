@@ -58,7 +58,7 @@ struct PredictRequestListItem: View {
             .padding(.bottom, 2)
             
             Label {
-                Text("Blood Type")
+                Text("Blood type")
                 Spacer()
                 Picker("Blood type", selection: $person.bloodType) {
                     ForEach(BloodType.allCases) { type in

@@ -33,14 +33,14 @@ struct PrefectureNavigationStack: View {
                     PrefectureTableView(prefectures: prefectureVM.searchResults)
                 }
             }
-            .navigationTitle("Prefectures")
+            .navigationTitle("Prefecture")
             .navigationDestination(for: Prefecture.self) { prefecture in
                 PrefectureDetailView(prefecture: prefecture)
             }
             .searchable(text: $prefectureVM.searchText)
             .toolbar {
                 ToolbarItem {
-                    Picker("ViewStyle", selection: $prefectureVM.viewStyle) {
+                    Picker("View Style", selection: $prefectureVM.viewStyle) {
                         Label("Grid", systemImage: "square.grid.2x2").tag(ViewStyle.gridView)
                         Label("List", systemImage: "list.bullet").tag(ViewStyle.ListView)
                     }

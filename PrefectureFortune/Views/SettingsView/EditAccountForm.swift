@@ -18,7 +18,7 @@ struct EditAccountForm: View {
                     .padding(.bottom, 3)
             } else {
                 PredictRequestListItem(person: $person) {
-                    print("hello")
+                    // action
                 }
             }
         }

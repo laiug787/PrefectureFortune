@@ -21,7 +21,7 @@ struct PrefectureDetailView: View {
                 HStack {
                     Spacer()
                     Button {
-                        print("star")
+                        print("")
                     } label: {
                         Image(systemName: "star.fill")
                             .resizable()
