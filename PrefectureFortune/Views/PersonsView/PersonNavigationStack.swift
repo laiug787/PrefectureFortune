@@ -101,8 +101,12 @@ struct PersonNavigationStack: View {
     
     private func personListItem(_ person: PersonEntity) -> some View {
         VStack(alignment: .leading) {
-            Label(person.name, systemImage: "person")
-                .font(.title2)
+            Label {
+                Text(person.name)
+                    .font(.title2)
+            } icon: {
+                LabelIcon(systemName:  "person.fill", color: .blue)
+            }
             HStack() {
                 HStack {
                     Image(systemName: "drop.fill")
