@@ -8,6 +8,9 @@
 "Blood type" = "血液型";
 
 /* No comment provided by engineer. */
+"Can't be predicted." = "占えません";
+
+/* No comment provided by engineer. */
 "Capital" = "県庁所在地";
 
 /* No comment provided by engineer. */
@@ -78,6 +81,9 @@
 
 /* No comment provided by engineer. */
 "No Prefecture" = "該当なし";
+
+/* No comment provided by engineer. */
+"Not connected to network" = "ネットワークに接続されていません";
 
 /* No comment provided by engineer. */
 "OK" = "OK";
