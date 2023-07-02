@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct IntroView: View {
+    @Environment(\.dismiss) private var dismiss
     @State private var tabSelection: Int = 0
     @State private var user: Person = Person(name: "", birthday: YearMonthDay(date: .now), bloodType: .ab, today: YearMonthDay(date: .now))
     
@@ -66,7 +67,7 @@ struct IntroView: View {
                 .padding()
             Spacer()
             pageButton("Let's Start") {
-                print("Predict")
+                dismiss()
             }
         }
         .padding()

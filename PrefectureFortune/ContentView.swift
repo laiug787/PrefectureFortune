@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("showIntroView") var showIntroView: Bool = true
+    
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     
@@ -18,14 +20,19 @@ struct ContentView: View {
     }
     
     var body: some View {
-        if prefersTabNavigation {
-            AppTabView(selection: $selection)
-        } else {
-            NavigationSplitView {
-                AppSidebarList(selection: $selection)
-            } detail: {
-                AppDetailColumn(screen: $selection)
+        Group {
+            if prefersTabNavigation {
+                AppTabView(selection: $selection)
+            } else {
+                NavigationSplitView {
+                    AppSidebarList(selection: $selection)
+                } detail: {
+                    AppDetailColumn(screen: $selection)
+                }
             }
+        }
+        .sheet(isPresented: $showIntroView) {
+            IntroView()
         }
     }
 }
