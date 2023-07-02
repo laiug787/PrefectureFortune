@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PersonNavigationStack: View {
-    @EnvironmentObject var userVM: PersonViewModel
+    @EnvironmentObject var personVM: PersonViewModel
     
     @State private var viewStyle: FavoriteViewStyle = .users
     
@@ -26,7 +26,7 @@ struct PersonNavigationStack: View {
                 }
                 .pickerStyle(.segmented)
                 .padding()
-                if !userVM.persons.isEmpty {
+                if personVM.persons.isEmpty {
                     Spacer()
                     ContentUnavailableView(
                         text: "No Person",
@@ -38,12 +38,12 @@ struct PersonNavigationStack: View {
                     List {
                         switch viewStyle {
                         case .users:
-                            ForEach(userVM.persons) { person in
+                            ForEach(personVM.persons) { person in
                                 personListItem(person)
                                     .padding(.horizontal)
                             }
                         case .prefectures:
-                            ForEach(userVM.prefectures) { prefecture in
+                            ForEach(personVM.prefectures) { prefecture in
                                 Text(prefecture.name)
                             }
                         }

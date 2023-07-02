@@ -53,5 +53,6 @@ struct PrefectureNavigationStack: View {
 struct PrefectureNavigationStack_Previews: PreviewProvider {
     static var previews: some View {
         PrefectureNavigationStack()
+            .environmentObject(PersonViewModel())
     }
 }

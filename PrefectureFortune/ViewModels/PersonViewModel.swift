@@ -58,7 +58,7 @@ final class PersonViewModel: ObservableObject {
 
 // Person
 extension PersonViewModel{
-    func addPerson(_ user: Person) -> PersonEntity {
+    private func addPerson(_ user: Person) -> PersonEntity {
         let newPerson = PersonEntity(context: manager.context)
         newPerson.id = UUID().uuidString
         newPerson.name = user.name
@@ -68,7 +68,7 @@ extension PersonViewModel{
         return newPerson
     }
     
-    func deletePerson(_ personEntity: PersonEntity) {
+    private func deletePerson(_ personEntity: PersonEntity) {
         manager.context.delete(personEntity)
         manager.save()
         getPersons()

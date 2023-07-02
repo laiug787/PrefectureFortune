@@ -9,6 +9,8 @@ import SwiftUI
 import MapKit
 
 struct PrefectureDetailView: View {
+    @EnvironmentObject var favoritePersonVM: PersonViewModel
+    
     var person: Person? = nil
     var prefecture: Prefecture
     @State private var region = MKCoordinateRegion()
@@ -38,6 +40,15 @@ struct PrefectureDetailView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem {
+                if let person = person {
+                    Button("Save") {
+                        favoritePersonVM.addToFavorite(person, prefecture)
+                    }
+                }
+            }
+        }
         .onAppear {
             let address = prefecture.capital
             CLGeocoder().geocodeAddressString(address) { placemarks, error in
@@ -91,5 +102,6 @@ struct PrefectureDetailView_Previews: PreviewProvider {
                 PrefectureDetailView(prefecture: samplePrefectures[1])
             }
         }
+        .environmentObject(PersonViewModel())
     }
 }
