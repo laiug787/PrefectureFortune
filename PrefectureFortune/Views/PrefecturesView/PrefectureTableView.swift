@@ -10,11 +10,9 @@ import SwiftUI
 struct PrefectureTableView: View {
     var prefectures: [Prefecture]
     
-    @State private var sortOrder = [KeyPathComparator(\Prefecture.name)]
-    
     var body: some View {
-        Table(sortOrder: $sortOrder) {
-            TableColumn("Prefecture", value: \.name) { prefecture in
+        Table(of: Prefecture.self) {
+            TableColumn("Prefecture") { prefecture in
                 HStack(spacing: 32) {
                     AsyncImage(url: URL(string: prefecture.logoUrl)) { image in
                         image
@@ -30,7 +28,7 @@ struct PrefectureTableView: View {
             }
             .width(min: 250, max: 500)
             
-            TableColumn("Capital", value: \.capital) { prefecture in
+            TableColumn("Capital") { prefecture in
                 Text(prefecture.capital)
             }
             
