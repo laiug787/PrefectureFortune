@@ -101,19 +101,9 @@ struct PersonNavigationStack: View {
     
     private func personListItem(_ person: PersonEntity) -> some View {
         VStack(alignment: .leading) {
-            Label {
-                Text(person.name)
-                    .font(.title2)
-            } icon: {
-                LabelIcon(systemName:  "person.fill", color: .blue)
-            }
+            Text(person.name)
+                .font(.title2)
             HStack() {
-                HStack {
-                    Image(systemName: "drop.fill")
-                    Text(person.bloodType)
-                }
-                .tagStyle(color: .red)
-                
                 HStack {
                     Image(systemName: "birthday.cake.fill")
                     Text(person.birthday.yearMonthDayString)
@@ -121,10 +111,19 @@ struct PersonNavigationStack: View {
                 .tagStyle(color: .orange)
                 
                 HStack {
-                    Image(systemName: "map.fill")
-                    Text("\(person.predicts.count)")
+                    Image(systemName: "drop.fill")
+                    Text(person.bloodType)
                 }
-                .tagStyle(color: .cyan)
+                .tagStyle(color: .red)
+                
+                if person.predicts.count != 0 {
+                    HStack {
+                        Image(systemName: "map.fill")
+                        Text("\(person.predicts.count)")
+                    }
+                    .tagStyle(color: .cyan)
+                }
+                
             }
         }
     }
