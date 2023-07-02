@@ -66,6 +66,13 @@ struct PersonNavigationStack: View {
                 } label: {
                     PrefectureListItem(prefecture.convertToPrefecture())
                 }
+                .swipeActions(edge: .trailing) {
+                    Button(role: .destructive) {
+                        personVM.deletePrefecture(prefecture)
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                }
             }
         }
         .listStyle(.plain)
@@ -79,6 +86,13 @@ struct PersonNavigationStack: View {
                 } label: {
                     personListItem(person)
                         .padding(.horizontal)
+                }
+                .swipeActions(edge: .trailing) {
+                    Button(role: .destructive) {
+                        personVM.deletePerson(person)
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
                 }
             }
         }

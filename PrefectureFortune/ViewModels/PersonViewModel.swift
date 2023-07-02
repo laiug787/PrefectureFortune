@@ -68,7 +68,7 @@ extension PersonViewModel{
         return newPerson
     }
     
-    private func deletePerson(_ personEntity: PersonEntity) {
+    func deletePerson(_ personEntity: PersonEntity) {
         manager.context.delete(personEntity)
         manager.save()
         getPersons()
@@ -99,6 +99,13 @@ extension PersonViewModel{
             newPrefecture.name = prefecture.name
             return newPrefecture
         }
+    }
+    
+    func deletePrefecture(_ prefectureEntity: PrefectureEntity) {
+        manager.context.delete(prefectureEntity)
+        manager.save()
+        getPersons()
+        getPrefectures()
     }
 }
 
