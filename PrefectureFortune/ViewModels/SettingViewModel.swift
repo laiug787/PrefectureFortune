@@ -10,6 +10,26 @@ import SwiftUI
 final class SettingViewModel: ObservableObject {
     @AppStorage("appearanceMode") var appearanceMode: DisplayMode = .system
     
+    @AppStorage("accountName") var accountName: String = ""
+    @AppStorage("accountBirthday") var accountBirthday: String = Date.now.rawValue
+    @AppStorage("accountBloodType") var accountBloodType: BloodType = .ab
+    
+    var account: Person {
+        get {
+            return Person(
+                name: accountName,
+                birthday: YearMonthDay(date: Date(rawValue: accountBirthday)!),
+                bloodType: accountBloodType,
+                today: YearMonthDay(date: Date.now)
+            )
+        }
+        set {
+            accountName = newValue.name
+            accountBirthday = newValue.birthday.date.rawValue
+            accountBloodType = newValue.bloodType
+        }
+    }
+    
     var colorScheme: ColorScheme? {
         return appearanceMode.colorScheme
     }
@@ -23,6 +43,16 @@ final class SettingViewModel: ObservableObject {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
+    }
+}
+
+extension Date: RawRepresentable {
+    public var rawValue: String {
+        self.timeIntervalSinceReferenceDate.description
+    }
+    
+    public init?(rawValue: String) {
+        self = Date(timeIntervalSinceReferenceDate: Double(rawValue) ?? 0.0)
     }
 }
 
