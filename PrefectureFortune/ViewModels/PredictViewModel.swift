@@ -33,7 +33,7 @@ final class PredictViewModel: ObservableObject {
         }
         Task {
             do {
-                let prefecture = try await prefectureFetcher.fetchPrefectureData(user: person)
+                let prefecture = try await prefectureFetcher.fetchPrefectureData(person: person)
                 self.prefecture = prefecture
             } catch APIError.invalidURL {
                 print("invalid URL")
