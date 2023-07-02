@@ -58,14 +58,18 @@ final class PersonViewModel: ObservableObject {
 
 // Person
 extension PersonViewModel{
-    private func addPerson(_ user: Person) -> PersonEntity {
-        let newPerson = PersonEntity(context: manager.context)
-        newPerson.id = UUID().uuidString
-        newPerson.name = user.name
-        newPerson.birthday = user.birthday.date
-        newPerson.bloodType = user.bloodType.rawValue
-        newPerson.creationDate = user.today.date
-        return newPerson
+    private func addPerson(_ person: Person) -> PersonEntity {
+        if let person = persons.first(where: { $0.convertToPerson() == person }) {
+            return person
+        } else {
+            let newPerson = PersonEntity(context: manager.context)
+            newPerson.id = UUID().uuidString
+            newPerson.name = person.name
+            newPerson.birthday = person.birthday.date
+            newPerson.bloodType = person.bloodType.rawValue
+            newPerson.creationDate = person.today.date
+            return newPerson
+        }
     }
     
     func deletePerson(_ personEntity: PersonEntity) {
