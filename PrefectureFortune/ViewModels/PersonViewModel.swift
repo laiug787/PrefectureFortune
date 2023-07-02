@@ -83,11 +83,16 @@ extension PersonViewModel{
 // Predict
 extension PersonViewModel{
     private func addPredict(_ user: Person, _ prefecture: Prefecture) {
+        let person = addPerson(user)
+        let prefecture = addPrefecture(prefecture)
+        
+        guard !person.predicts.contains(where: { $0.predictDate.yearMonthDayString == user.today.date.yearMonthDayString }) else { return }
+        
         let newPredict = PredictEntity(context: manager.context)
         newPredict.id = UUID().uuidString
         newPredict.predictDate = user.today.date
-        newPredict.person = addPerson(user)
-        newPredict.prefecture = addPrefecture(prefecture)
+        newPredict.person = person
+        newPredict.prefecture = prefecture
     }
 }
 
