@@ -27,6 +27,13 @@ struct IntroView: View {
         }
         .tabViewStyle(.page)
         .indexViewStyle(.page(backgroundDisplayMode: .never))
+        .alert("Not connected to network", isPresented: $settingVM.showingOfflineAlert) {
+            Button("OK") {
+                // code
+            }
+        } message: {
+            Text("Can't be predicted.")
+        }
     }
     
     private var welcomPage: some View {
@@ -65,8 +72,10 @@ struct IntroView: View {
             Spacer()
             pageButton("Predict") {
                 settingVM.predict()
-                withAnimation {
-                    tabSelection = 2
+                if settingVM.showingOfflineAlert {
+                    withAnimation {
+                        tabSelection = 2
+                    }
                 }
             }
             .disabled(settingVM.account.name.isEmpty)

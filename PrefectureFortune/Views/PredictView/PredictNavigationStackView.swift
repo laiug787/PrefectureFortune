@@ -90,6 +90,13 @@ struct PredictNavigationStackView: View {
             } message: {
                 Text("Name can't be blank.")
             }
+            .alert("Not connected to network", isPresented: $predictVM.showingOfflineAlert) {
+                Button("OK") {
+                    // code
+                }
+            } message: {
+                Text("Can't be predicted.")
+            }
         }
         .onAppear {
             if isFocusedBefore == false {

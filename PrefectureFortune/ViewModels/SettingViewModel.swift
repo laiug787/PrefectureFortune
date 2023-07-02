@@ -15,8 +15,10 @@ final class SettingViewModel: ObservableObject {
     @AppStorage("accountBloodType") var accountBloodType: BloodType = .ab
     
     @Published var prefecture: Prefecture = Prefecture.preview
+    @Published var showingOfflineAlert: Bool = false
     
     private var prefectureFetcher: PrefectureFetcher = PrefectureFetcher()
+    private var networkMonitor: NetworkMonitor = NetworkMonitor()
     
     var account: Person {
         get {
@@ -55,19 +57,24 @@ final class SettingViewModel: ObservableObject {
             return
         }
         Task {
-            do {
-                let prefecture = try await prefectureFetcher.fetchPrefectureData(person: account)
-                self.prefecture = prefecture
-            } catch APIError.invalidURL {
-                print("invalid URL")
-            } catch APIError.invalidRequest {
-                print("invalid request")
-            } catch APIError.invalidResponse {
-                print("invalid response")
-            } catch APIError.invalidEncode {
-                print("invalid encode")
-            } catch APIError.invalidDecode {
-                print("invalid decode")
+            if !networkMonitor.isConnected {
+                showingOfflineAlert.toggle()
+                return
+            } else {
+                do {
+                    let prefecture = try await prefectureFetcher.fetchPrefectureData(person: account)
+                    self.prefecture = prefecture
+                } catch APIError.invalidURL {
+                    print("invalid URL")
+                } catch APIError.invalidRequest {
+                    print("invalid request")
+                } catch APIError.invalidResponse {
+                    print("invalid response")
+                } catch APIError.invalidEncode {
+                    print("invalid encode")
+                } catch APIError.invalidDecode {
+                    print("invalid decode")
+                }
             }
         }
     }

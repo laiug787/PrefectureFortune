@@ -27,6 +27,7 @@
 		6F63DB702A51AED5007EBA3C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DB6F2A51AED5007EBA3C /* View.swift */; };
 		6F63DB762A51F086007EBA3C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DB752A51F086007EBA3C /* Date.swift */; };
 		6F63DB782A520903007EBA3C /* LabelIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DB772A520902007EBA3C /* LabelIcon.swift */; };
+		6F63DB7A2A521DB7007EBA3C /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F63DB792A521DB7007EBA3C /* NetworkMonitor.swift */; };
 		6F7DB7752A4A0B7900431383 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DB7742A4A0B7900431383 /* AppTabView.swift */; };
 		6F7DB7772A4A0C0000431383 /* PrefectureNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DB7762A4A0C0000431383 /* PrefectureNavigationStack.swift */; };
 		6F7DB7792A4A0D4300431383 /* PersonNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7DB7782A4A0D4300431383 /* PersonNavigationStack.swift */; };
@@ -77,6 +78,7 @@
 		6F63DB6F2A51AED5007EBA3C /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		6F63DB752A51F086007EBA3C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		6F63DB772A520902007EBA3C /* LabelIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelIcon.swift; sourceTree = "<group>"; };
+		6F63DB792A521DB7007EBA3C /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		6F7DB7742A4A0B7900431383 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		6F7DB7762A4A0C0000431383 /* PrefectureNavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureNavigationStack.swift; sourceTree = "<group>"; };
 		6F7DB7782A4A0D4300431383 /* PersonNavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonNavigationStack.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				6F474CFB2A4956C80019483F /* PrefectureFetcher.swift */,
+				6F63DB792A521DB7007EBA3C /* NetworkMonitor.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				6F474CE82A48A1210019483F /* PrefectureFortuneApp.swift in Sources */,
 				6F816D042A5027BE00EA297E /* PersonEntity+CoreDataProperties.swift in Sources */,
 				6F816D012A5027BE00EA297E /* PrefectureEntity+CoreDataClass.swift in Sources */,
+				6F63DB7A2A521DB7007EBA3C /* NetworkMonitor.swift in Sources */,
 				6F816D072A50297E00EA297E /* CoreDataManager.swift in Sources */,
 				6F63DB762A51F086007EBA3C /* Date.swift in Sources */,
 				6F63DB612A508C05007EBA3C /* PersonDetailView.swift in Sources */,
